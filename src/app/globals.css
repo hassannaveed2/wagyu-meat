@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f7f3ec;
+  --color-paper-2: #efe8dc;
+  --color-paper-3: #e7dece;
+  --color-ink: #191512;
+  --color-ink-2: #5a5048;
+  --color-ink-3: #8a7f75;
+  --color-line: #e3dacb;
+  --color-wagyu: #8e1f1a;
+  --color-wagyu-ink: #6e1712;
+  --color-wagyu-soft: #f3e2dc;
+  --color-gold: #a8834a;
+  --color-gold-soft: #efe3cc;
+  --color-sumi: #1a1613;
+  --color-sumi-2: #2a241f;
+  --color-leaf: #2f6b3f;
+  --color-leaf-soft: #e1eee3;
+  --color-whatsapp: #1f9d55;
+
+  --font-display: var(--font-display-en), var(--font-display-ja), Georgia, serif;
+  --font-sans: var(--font-sans-en), var(--font-sans-ja), system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius-card: 10px;
+  --shadow-card: 0 1px 2px rgb(25 21 18 / 0.04), 0 8px 24px -12px rgb(25 21 18 / 0.18);
+  --shadow-pop: 0 18px 50px -20px rgb(25 21 18 / 0.45);
+
+  --animate-fade-up: fade-up 0.5s ease both;
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+/* Japanese pages lead with the Japanese faces. */
+html:lang(ja) {
+  --font-display: var(--font-display-ja), var(--font-display-en), serif;
+  --font-sans: var(--font-sans-ja), var(--font-sans-en), system-ui, sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 120px;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-wagyu);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-wagyu);
+  color: var(--color-paper);
+}
+
+@layer components {
+  .display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+  html:lang(ja) .display {
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+  }
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-wagyu);
+  }
+  .hairline {
+    background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+    height: 1px;
+  }
+  .seigaiha {
+    background-color: var(--color-sumi);
+    background-image: radial-gradient(circle at 50% 100%, transparent 18px, rgb(168 131 74 / 0.12) 19px, transparent 20px),
+      radial-gradient(circle at 50% 100%, transparent 26px, rgb(168 131 74 / 0.08) 27px, transparent 28px);
+    background-size: 56px 28px;
+  }
+  .prose-wagyu {
+    color: var(--color-ink-2);
+    line-height: 1.75;
+  }
+  .prose-wagyu h2,
+  .prose-wagyu h3 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    font-weight: 600;
+    margin: 1.6em 0 0.5em;
+  }
+  .prose-wagyu h2 { font-size: 1.6rem; }
+  .prose-wagyu h3 { font-size: 1.25rem; }
+  .prose-wagyu p,
+  .prose-wagyu ul,
+  .prose-wagyu ol { margin: 0 0 1em; }
+  .prose-wagyu ul { list-style: disc; padding-left: 1.25rem; }
+  .prose-wagyu ol { list-style: decimal; padding-left: 1.25rem; }
+  .prose-wagyu li { margin: 0.3em 0; }
+  .prose-wagyu strong { color: var(--color-ink); }
+  .prose-wagyu a { color: var(--color-wagyu); text-decoration: underline; text-underline-offset: 3px; }
+}
+
+/* Floating WhatsApp button: clear the mobile buy bar, hide during checkout. */
+body[data-buybar] .wa-float {
+  bottom: 6rem;
+}
+@media (min-width: 1024px) {
+  body[data-buybar] .wa-float {
+    bottom: 1.5rem;
+  }
+}
+body[data-checkout] .wa-float {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

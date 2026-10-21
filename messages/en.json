@@ -1,0 +1,491 @@
+{
+  "meta": {
+    "siteName": "Wagyu Meat",
+    "title": "Wagyu Meat — Halal Japanese A5 & Australian Wagyu in Pakistan",
+    "description": "Certified halal Japanese A5 and Australian wagyu, delivered frozen in Karachi, Lahore and Islamabad. Certificates of authenticity, cold-chain delivery and cash on delivery."
+  },
+  "nav": {
+    "shop": "Shop",
+    "shopAll": "Shop all wagyu",
+    "byOrigin": "By origin",
+    "byCut": "By cut",
+    "byOccasion": "By occasion",
+    "wagyu101": "Wagyu 101",
+    "guides": "Guides & recipes",
+    "gifting": "Gifting",
+    "delivery": "Delivery",
+    "halal": "Halal & provenance",
+    "track": "Track order",
+    "about": "About",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close",
+    "search": "Search",
+    "cart": "Cart",
+    "skipToContent": "Skip to content"
+  },
+  "city": {
+    "label": "Deliver to",
+    "choose": "Choose your city",
+    "change": "Change city",
+    "nextDelivery": "Next delivery to {city}: {date}",
+    "freeOver": "Free delivery over {amount}",
+    "fee": "Delivery {amount}"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "ja": "日本語"
+  },
+  "common": {
+    "from": "From",
+    "perKg": "{price}/kg",
+    "addToCart": "Add to cart",
+    "added": "Added",
+    "outOfStock": "Sold out",
+    "viewProduct": "View",
+    "learnMore": "Learn more",
+    "readMore": "Read",
+    "minutes": "{count} min read",
+    "orderOnWhatsApp": "Order on WhatsApp",
+    "chatOnWhatsApp": "Chat on WhatsApp",
+    "halal": "Halal certified",
+    "certificate": "Certificate included",
+    "frozen": "Frozen",
+    "bms": "BMS {value}",
+    "reviews": "{count, plural, one {# review} other {# reviews}}",
+    "rating": "{rating} out of 5",
+    "japan": "Japan",
+    "australia": "Australia",
+    "quantity": "Quantity",
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity",
+    "remove": "Remove",
+    "save": "Save {amount}",
+    "backToShop": "Back to shop",
+    "sample": "Sample"
+  },
+  "home": {
+    "proofs": {
+      "halal": "Certified halal, every cut",
+      "certificate": "Certificate of authenticity with each A5 order",
+      "coldchain": "Frozen cold-chain delivery to your door"
+    },
+    "shopCta": "Shop wagyu",
+    "whatIsA5": "What is A5?",
+    "trust": {
+      "halal": { "title": "Halal certified", "body": "Slaughtered and processed at certified facilities." },
+      "graded": { "title": "Graded & traceable", "body": "Every A5 carries a 10-digit cattle ID." },
+      "frozen": { "title": "Frozen at peak", "body": "Vacuum-sealed and frozen within hours." },
+      "delivery": { "title": "Cold-chain delivery", "body": "Insulated boxes, scheduled slots." }
+    },
+    "origin": {
+      "eyebrow": "Two origins",
+      "title": "Choose your wagyu",
+      "lede": "Japanese A5 is the world's most marbled beef, a rich delicacy. Australian wagyu is beefier, more affordable and made for the grill.",
+      "japanTitle": "Japanese A5",
+      "japanBody": "Kagoshima, Miyazaki, Hokkaido. BMS 9–12.",
+      "australiaTitle": "Australian wagyu",
+      "australiaBody": "Grain-fed 400+ days. Marble score 6–9.",
+      "fromPrice": "From {price}"
+    },
+    "bestSellers": {
+      "eyebrow": "Most loved",
+      "title": "Best sellers",
+      "viewAll": "View all"
+    },
+    "marbling": {
+      "eyebrow": "The marbling scale",
+      "title": "What the numbers mean",
+      "lede": "Beef Marbling Standard (BMS) runs from 1 to 12. Most supermarket beef sits at 1–2. Everything we sell starts at 6.",
+      "link": "Read Wagyu 101"
+    },
+    "occasion": {
+      "eyebrow": "Shop by occasion",
+      "title": "What are you cooking?"
+    },
+    "compare": {
+      "eyebrow": "Side by side",
+      "title": "How wagyu compares",
+      "lede": "A quick guide to choosing between Japanese A5, Australian wagyu and the beef you already know.",
+      "feature": "",
+      "a5": "Japanese A5",
+      "aus": "Australian wagyu",
+      "regular": "Regular beef",
+      "rows": {
+        "marbling": "Marbling (BMS)",
+        "flavour": "Flavour",
+        "portion": "Portion per person",
+        "bestFor": "Best for",
+        "price": "Price per 100 g"
+      },
+      "values": {
+        "a5Marbling": "9–12",
+        "ausMarbling": "6–9",
+        "regularMarbling": "1–3",
+        "a5Flavour": "Buttery, sweet, melts in the mouth",
+        "ausFlavour": "Rich and beefy, juicy",
+        "regularFlavour": "Lean, firm",
+        "a5Portion": "80–120 g",
+        "ausPortion": "200–250 g",
+        "regularPortion": "250 g+",
+        "a5BestFor": "Special occasions, yakiniku, shabu-shabu",
+        "ausBestFor": "Steak nights, BBQ, roasts",
+        "regularBestFor": "Everyday cooking",
+        "a5Price": "Rs 7,000–11,000",
+        "ausPrice": "Rs 2,400–3,300",
+        "regularPrice": "Rs 120–200"
+      }
+    },
+    "provenance": {
+      "eyebrow": "Farm to door",
+      "title": "From Japan's best farms to your freezer",
+      "steps": {
+        "farm": { "title": "Raised slowly", "body": "Kuroge cattle are raised for 30+ months on family farms in Kagoshima, Miyazaki and Hokkaido." },
+        "halal": { "title": "Halal processing", "body": "Slaughter and processing at halal-certified facilities, with certificates kept for every shipment." },
+        "import": { "title": "Graded & imported", "body": "Graded by the Japan Meat Grading Association, frozen at peak and imported with full paperwork." },
+        "delivery": { "title": "Cold-chain to you", "body": "Our own team delivers in insulated boxes on scheduled days in your city." }
+      },
+      "link": "Halal & provenance"
+    },
+    "gifts": {
+      "eyebrow": "Made for gifting",
+      "title": "Eid, weddings and the people who deserve the best",
+      "lede": "Presentation boxes with handwritten notes, prices hidden on request, delivered frozen and on time.",
+      "corporate": "Corporate & bulk gifting",
+      "cta": "Shop gifts"
+    },
+    "guides": {
+      "eyebrow": "Cook it right",
+      "title": "Guides & recipes",
+      "viewAll": "All guides"
+    },
+    "reviews": {
+      "eyebrow": "Reviews",
+      "title": "What our customers say",
+      "summary": "{rating} average from {count, plural, one {# review} other {# reviews}}"
+    },
+    "faq": {
+      "eyebrow": "Questions",
+      "title": "Before you order",
+      "more": "All questions"
+    },
+    "final": {
+      "eyebrow": "Ready when you are",
+      "title": "Bring the world's finest beef home",
+      "body": "Order online for scheduled delivery, or message our wagyu concierge on WhatsApp for help choosing.",
+      "shop": "Shop now"
+    }
+  },
+  "bms": {
+    "label": "BMS {value}",
+    "grade": {
+      "low": "Standard beef",
+      "mid": "Premium",
+      "high": "Australian wagyu",
+      "top": "Japanese A5"
+    },
+    "describe": {
+      "1": "Very lean. Typical supermarket beef.",
+      "2": "Light marbling. Most imported beef.",
+      "3": "Some marbling. Comparable to USDA Choice.",
+      "4": "Good marbling. Comparable to USDA Prime.",
+      "5": "Very good marbling. Top end of Prime.",
+      "6": "Wagyu begins here: noticeably juicy and tender.",
+      "7": "Rich wagyu marbling, still beefy.",
+      "8": "Heavy marbling. Buttery with a clean finish.",
+      "9": "Exceptional marbling. Australia's best; entry to A5.",
+      "10": "Japanese A5: fine snowflake fat throughout.",
+      "11": "Japanese A5: exceptionally fine, melts on the tongue.",
+      "12": "Japanese A5: the rarest, most marbled beef on earth."
+    }
+  },
+  "shop": {
+    "title": "Shop wagyu",
+    "lede": "Halal Japanese A5 and Australian wagyu, cut and frozen at peak.",
+    "filters": "Filters",
+    "origin": "Origin",
+    "cut": "Cut",
+    "occasion": "Occasion",
+    "all": "All",
+    "sort": "Sort",
+    "sortFeatured": "Featured",
+    "sortPriceAsc": "Price: low to high",
+    "sortPriceDesc": "Price: high to low",
+    "sortBms": "Marbling: highest first",
+    "results": "{count, plural, one {# product} other {# products}}",
+    "clear": "Clear filters",
+    "empty": "No products match these filters.",
+    "showResults": "Show {count} results"
+  },
+  "product": {
+    "breadcrumbShop": "Shop",
+    "chooseSize": "Choose a size",
+    "eachPrice": "{price} each",
+    "region": "Region",
+    "grade": "Grade",
+    "brand": "Brand",
+    "storage": "Storage",
+    "frozenNote": "Delivered frozen. Thaw 24 hours in the fridge.",
+    "tabs": {
+      "description": "Description",
+      "contents": "What's in the box",
+      "provenance": "Provenance & halal",
+      "cooking": "How to cook",
+      "storage": "Storage & thawing",
+      "delivery": "Delivery & returns"
+    },
+    "provenanceBody": "Raised in {region}. Slaughtered and processed at halal-certified facilities; the halal certificate for this batch is available on request.",
+    "provenanceA5": "Includes the official certificate of authenticity with the animal's 10-digit ID, which you can trace to the farm.",
+    "halalBody": "Certifying body: {body}.",
+    "storageBody": "Keep frozen at −18 °C for up to 12 months. Thaw in the fridge: slices 8–12 hours, steaks 24 hours, roasts 36 hours. Cook within 3 days of thawing. Do not refreeze.",
+    "deliveryBody": "Delivered frozen in an insulated box on scheduled days in Karachi, Lahore and Islamabad/Rawalpindi. Because wagyu is perishable we can't take returns, but if anything arrives thawed, damaged or incorrect, message us within 24 hours for a replacement or refund.",
+    "portion": "Portion guide",
+    "related": "You may also like",
+    "relatedGuides": "Cook it right",
+    "reviewsTitle": "Reviews",
+    "noReviews": "No reviews yet.",
+    "notFound": "We couldn't find that product."
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "Your cart is empty.",
+    "emptyCta": "Start shopping",
+    "subtotal": "Subtotal",
+    "delivery": "Delivery",
+    "deliveryFree": "Free",
+    "deliveryChooseCity": "Choose city at checkout",
+    "total": "Total",
+    "checkout": "Checkout",
+    "continue": "Continue shopping",
+    "freeProgress": "Add {amount} more for free delivery",
+    "freeReached": "You've unlocked free delivery",
+    "unavailable": "No longer available",
+    "viewCart": "View cart",
+    "itemAdded": "Added to your cart"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "contact": "Contact",
+    "name": "Full name",
+    "phone": "Mobile number",
+    "phoneHint": "We'll confirm your order on WhatsApp.",
+    "email": "Email (optional)",
+    "delivery": "Delivery",
+    "city": "City",
+    "address": "Street address",
+    "area": "Area / neighbourhood",
+    "date": "Delivery date",
+    "slot": "Time slot",
+    "notes": "Delivery notes (optional)",
+    "payment": "Payment",
+    "methods": {
+      "cod": "Cash on delivery",
+      "bank-transfer": "Bank transfer",
+      "jazzcash": "JazzCash",
+      "easypaisa": "Easypaisa",
+      "card": "Debit / credit card"
+    },
+    "methodHints": {
+      "cod": "Pay the rider in cash when your order arrives.",
+      "bank-transfer": "We'll send account details on WhatsApp. Your order ships once payment clears.",
+      "jazzcash": "We'll send a secure JazzCash payment link on WhatsApp.",
+      "easypaisa": "We'll send a secure Easypaisa payment link on WhatsApp.",
+      "card": "We'll send a secure card payment link on WhatsApp."
+    },
+    "gift": "This is a gift",
+    "giftMessage": "Gift message",
+    "hidePrices": "Hide prices on the invoice",
+    "summary": "Order summary",
+    "place": "Place order · {total}",
+    "placing": "Placing order…",
+    "terms": "By placing your order you agree to our terms and refund policy.",
+    "emptyCart": "Your cart is empty.",
+    "errors": {
+      "required": "This field is required.",
+      "invalid-phone": "Enter a Pakistani mobile number, e.g. 0300 1234567.",
+      "invalid-email": "Enter a valid email address.",
+      "invalid-date": "Choose a delivery date.",
+      "city": "Choose a delivery city.",
+      "date": "That delivery date is no longer available. Please choose another.",
+      "slot": "Choose a time slot.",
+      "cart": "Some items in your cart changed. Please review your cart.",
+      "unknown": "Something went wrong. Please try again or order on WhatsApp."
+    }
+  },
+  "success": {
+    "eyebrow": "Order received",
+    "title": "Thank you, {name}!",
+    "body": "Your order {number} has been received. We'll confirm it on WhatsApp shortly.",
+    "deliveryOn": "Delivery on {date}, {slot}",
+    "paymentNext": "Next step for payment",
+    "whatsapp": "Confirm on WhatsApp",
+    "track": "Track your order",
+    "continue": "Continue shopping",
+    "notFound": "We couldn't find that order."
+  },
+  "track": {
+    "title": "Track your order",
+    "lede": "Enter your order number and the mobile number you ordered with.",
+    "number": "Order number",
+    "phone": "Mobile number",
+    "submit": "Find order",
+    "notFound": "No order matches those details.",
+    "status": {
+      "pending": "Received",
+      "confirmed": "Confirmed",
+      "packed": "Packed",
+      "out-for-delivery": "Out for delivery",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled"
+    },
+    "placed": "Placed {date}",
+    "items": "Items"
+  },
+  "footer": {
+    "tagline": "Halal Japanese A5 and Australian wagyu for Pakistan, graded, traceable and delivered frozen.",
+    "shop": "Shop",
+    "help": "Help",
+    "company": "Company",
+    "newsletter": "Seasonal drops & recipes",
+    "newsletterBody": "One email a month. No spam.",
+    "emailPlaceholder": "Your email",
+    "subscribe": "Subscribe",
+    "subscribed": "Thank you, you're subscribed.",
+    "payments": "We accept",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "refunds": "Refunds",
+    "rights": "© {year} Wagyu Meat. All rights reserved."
+  },
+  "pages": {
+    "wagyu101": {
+      "eyebrow": "Wagyu 101",
+      "title": "Everything you need to know about wagyu",
+      "lede": "What A5 means, how marbling is graded, and how to choose the right cut.",
+      "whatTitle": "What is wagyu?",
+      "whatBody": "Wagyu (和牛) simply means \"Japanese cattle\". Four native breeds qualify, and over 90% are Kuroge, Japanese Black. Their genetics produce intramuscular fat that melts at a lower temperature than other beef, giving wagyu its buttery texture and sweet aroma.",
+      "gradeTitle": "How Japanese beef is graded",
+      "gradeBody": "The Japan Meat Grading Association scores every carcass twice: a yield grade (A, B or C: how much usable meat) and a quality grade (1–5) based on marbling, colour, firmness and fat quality. A5 is the highest on both scales.",
+      "yield": "Yield grade",
+      "yieldA": "A: above-average yield",
+      "yieldB": "B: average yield",
+      "yieldC": "C: below-average yield",
+      "quality": "Quality grade",
+      "quality5": "5: excellent (BMS 8–12)",
+      "quality4": "4: good (BMS 5–7)",
+      "quality3": "3: average (BMS 3–4)",
+      "bmsTitle": "Explore the marbling scale",
+      "ausTitle": "Australian wagyu",
+      "ausBody": "Australia raises the largest wagyu herd outside Japan. Its marble score (MB) is broadly comparable to BMS. Australian wagyu is usually crossbred or long-fed fullblood, beefier and leaner than A5, and a great everyday luxury.",
+      "cutsTitle": "Know your cuts",
+      "cutsLede": "Tap a cut to see what it's like and shop it.",
+      "traceTitle": "Trace your beef",
+      "traceBody": "Every Japanese wagyu carcass has a 10-digit individual ID. It's printed on your certificate of authenticity, and you can look it up in the National Livestock Breeding Center's database to see the farm, breed and birth date."
+    },
+    "cuts": {
+      "chuck": { "name": "Chuck (Kata)", "body": "Flavourful shoulder; great sliced for yakiniku and shabu-shabu." },
+      "rib": { "name": "Ribeye (Ribu-rōsu)", "body": "The richest steak cut, with intense marbling and the prized cap." },
+      "loin": { "name": "Striploin (Sāroin)", "body": "Classic steak with a fine, even marble and a fat ribbon edge." },
+      "tenderloin": { "name": "Tenderloin (Hire)", "body": "The most tender and leanest cut; ideal if A5 ribeye feels too rich." },
+      "rump": { "name": "Rump & picanha (Ichibo)", "body": "Beefy, with a fat cap that bastes the meat; made for the grill." },
+      "brisket": { "name": "Brisket & plate (Bara)", "body": "Rich belly cuts, perfect for yakiniku kalbi and slow cooking." },
+      "round": { "name": "Round (Momo)", "body": "Leaner leg muscles for roasts, tataki and thin slicing." },
+      "shop": "Shop {cut}"
+    },
+    "guides": {
+      "eyebrow": "Guides & recipes",
+      "title": "Cook wagyu like a chef",
+      "lede": "Thawing, searing, yakiniku and hot pot, all in plain steps.",
+      "guide": "Guide",
+      "recipe": "Recipe"
+    },
+    "gifting": {
+      "eyebrow": "Gifting",
+      "title": "The gift they'll remember",
+      "lede": "Presentation boxes, handwritten notes and frozen delivery, timed for Eid, weddings and celebrations.",
+      "how": "How gifting works",
+      "steps": {
+        "choose": "Choose a gift box, tasting flight or gift card.",
+        "message": "Add your message at checkout. Hide prices if you like.",
+        "deliver": "We deliver frozen, on the date you choose, to their door."
+      },
+      "corporateTitle": "Corporate & bulk gifting",
+      "corporateBody": "Gifting for clients or your team? Tell us the quantity and dates and we'll send a proposal with custom cards and delivery to multiple addresses.",
+      "form": {
+        "name": "Your name",
+        "company": "Company",
+        "phone": "Mobile number",
+        "email": "Email",
+        "message": "Quantity, budget and dates",
+        "submit": "Send enquiry",
+        "sent": "Thank you. We'll be in touch within one working day.",
+        "error": "Please check the form and try again."
+      }
+    },
+    "halal": {
+      "eyebrow": "Halal & provenance",
+      "title": "Halal, traceable and honest",
+      "lede": "Where our wagyu comes from, how it's certified, and how you can check it yourself.",
+      "halalTitle": "Halal certification",
+      "halalBody": "All beef we sell is slaughtered and processed at halal-certified facilities in Japan and Australia. We keep the halal certificate for every shipment and will share it with any customer who asks.",
+      "authTitle": "Certificate of authenticity",
+      "authBody": "Every Japanese A5 product ships with an official certificate showing the grade, prefecture and the animal's 10-digit ID number.",
+      "chainTitle": "Our supply chain",
+      "chain": {
+        "farm": "Family farms in Japan and Australia",
+        "process": "Halal-certified slaughter and processing",
+        "grade": "Official grading and vacuum packing",
+        "freeze": "Frozen at peak, imported with full documentation",
+        "store": "Stored at −18 °C in Pakistan",
+        "deliver": "Delivered frozen to your door"
+      }
+    },
+    "delivery": {
+      "eyebrow": "Delivery",
+      "title": "Cold-chain delivery to your door",
+      "lede": "Scheduled frozen delivery in Karachi, Lahore and Islamabad/Rawalpindi.",
+      "city": "City",
+      "days": "Delivery days",
+      "slots": "Time slots",
+      "fee": "Delivery fee",
+      "free": "Free over",
+      "leadTime": "Order at least {hours} hours ahead",
+      "packTitle": "How we pack",
+      "packBody": "Your order is vacuum-sealed, packed in an insulated box with ice packs or dry ice, and delivered by our own team, never left with a third-party courier. Please move it to the freezer as soon as it arrives.",
+      "policyTitle": "If something's wrong",
+      "policyBody": "Because wagyu is perishable we can't accept returns. If anything arrives thawed, damaged or incorrect, send a photo on WhatsApp within 24 hours and we'll replace it or refund you."
+    },
+    "about": {
+      "eyebrow": "About us",
+      "title": "Bringing real wagyu to Pakistan",
+      "body": "Wagyu Meat started with a simple frustration: the \"wagyu\" on Pakistani menus was rarely the real thing, and there was no honest way to buy it at home. We work directly with halal-certified exporters in Japan and Australia, import with full documentation, and deliver frozen through our own cold chain. Every A5 steak comes with its certificate, so you can check its farm yourself."
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Frequently asked questions"
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "We're here to help",
+      "lede": "The fastest way to reach us is WhatsApp. We reply within the hour, 10 am – 8 pm, every day.",
+      "whatsapp": "WhatsApp",
+      "phone": "Phone",
+      "email": "Email",
+      "form": "Send us a message",
+      "sent": "Thank you. We'll reply shortly."
+    },
+    "legal": {
+      "privacyTitle": "Privacy policy",
+      "termsTitle": "Terms of sale",
+      "refundsTitle": "Refund policy",
+      "draft": "This page is a placeholder. Replace it with your reviewed legal text before launch."
+    },
+    "notFound": {
+      "title": "Page not found",
+      "body": "The page you're looking for doesn't exist or has moved.",
+      "cta": "Go to the homepage"
+    }
+  }
+}
