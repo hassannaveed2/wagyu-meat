@@ -1,0 +1,36 @@
+# Publishes the static page mockups (docs/mockups/) to GitHub Pages.
+# Each folder gets its own path, e.g. docs/mockups/home-kappo → /home-kappo/.
+# One-time setup: repo Settings → Pages → Source: "GitHub Actions".
+name: Deploy mockups to Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/mockups/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs/mockups
+      - id: deployment
+        uses: actions/deploy-pages@v4
