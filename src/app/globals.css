@@ -19,6 +19,18 @@
   --color-leaf-soft: #e1eee3;
   --color-whatsapp: #1f9d55;
 
+  /* /v2 landing page: a cooler white-and-black palette. */
+  --color-v2-ink: #111111;
+  --color-v2-muted: #55595d;
+  --color-v2-tint: #f5f5f3;
+  --color-v2-line: #e4e4e0;
+  --color-v2-yes: #2f9e6e;
+  --color-v2-yes-soft: #ecf6f0;
+  --color-v2-no: #c2453f;
+  --color-v2-no-soft: #f8e1df;
+  --font-v2-serif: var(--font-fraunces), var(--font-display-ja), Georgia, serif;
+  --font-v2-sans: var(--font-figtree), var(--font-sans-ja), system-ui, -apple-system, "Segoe UI", sans-serif;
+
   --font-display: var(--font-display-en), var(--font-display-ja), Georgia, serif;
   --font-sans: var(--font-sans-en), var(--font-sans-ja), system-ui, -apple-system, "Segoe UI", sans-serif;
 
@@ -126,6 +138,44 @@ body[data-buybar] .wa-float {
 }
 body[data-checkout] .wa-float {
   display: none;
+}
+/* /v2 shows its offer bar at every width. */
+body[data-stickybar] .wa-float {
+  bottom: 6.25rem;
+}
+
+/* /v2 landing page */
+html:has(.v2) {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+/* Re-declared here: the next/font variables only exist from .v2 down, not on :root. */
+.v2 {
+  --font-v2-serif: var(--font-fraunces), var(--font-display-ja), Georgia, serif;
+  --font-v2-sans: var(--font-figtree), var(--font-sans-ja), system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+html:lang(ja) .v2 {
+  --font-v2-serif: var(--font-display-ja), var(--font-fraunces), serif;
+  --font-v2-sans: var(--font-sans-ja), var(--font-figtree), system-ui, sans-serif;
+}
+/* Break Japanese headings between phrases instead of mid-word. */
+html:lang(ja) .v2 :is(h1, h2, h3) {
+  word-break: auto-phrase;
+}
+.v2-marquee {
+  animation: v2-marquee 40s linear infinite;
+}
+.v2-marquee:hover {
+  animation-play-state: paused;
+}
+@keyframes v2-marquee {
+  to { transform: translateX(-50%); }
+}
+.v2 details > summary::-webkit-details-marker {
+  display: none;
+}
+.v2 details[open] .v2-faq-icon {
+  transform: rotate(45deg);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -78,8 +78,9 @@ export function Header({ announcement, menu }: { announcement: string; menu: Men
 
           <Logo className="lg:mr-6" />
 
-          <nav aria-label="Main" className="hidden flex-1 items-center gap-1 lg:flex">
-            <div className="group relative">
+          {/* The mega menu anchors to the nav (not the Shop item) so it stays on screen with right-aligned links. */}
+          <nav aria-label="Main" className="relative hidden flex-1 items-center justify-end gap-1 lg:flex">
+            <div className="group">
               <Link
                 href="/shop"
                 className="inline-flex items-center gap-1 rounded-full px-4 py-2 text-[0.95rem] font-medium hover:bg-ink/5"
@@ -87,7 +88,7 @@ export function Header({ announcement, menu }: { announcement: string; menu: Men
                 {t("shop")}
                 <Icon name="chevronDown" size={15} className="transition-transform group-hover:rotate-180" />
               </Link>
-              <div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+              <div className="invisible absolute right-0 top-full z-50 pt-3 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
                 <div className="grid w-[760px] grid-cols-[1fr_1fr_1fr_220px] gap-6 rounded-[14px] border border-line bg-paper p-6 shadow-[var(--shadow-pop)]">
                   {menu.map((group) => (
                     <div key={group.key}>

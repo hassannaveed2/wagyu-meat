@@ -487,5 +487,282 @@
       "body": "The page you're looking for doesn't exist or has moved.",
       "cta": "Go to the homepage"
     }
+  },
+  "v2": {
+    "meta": {
+      "title": "Japanese A5 & Australian Wagyu, delivered frozen",
+      "description": "Halal Japanese A5 and Australian wagyu, graded and traceable, delivered frozen to Karachi, Lahore and Islamabad."
+    },
+    "announce": {
+      "link": "See this week's cuts"
+    },
+    "utility": {
+      "country": "Delivering in Pakistan",
+      "coldchain": "Cold-chain delivery",
+      "halal": "Halal certified"
+    },
+    "nav": {
+      "label": "Page sections",
+      "why": "Why wagyu",
+      "benefits": "Benefits",
+      "compare": "Compare",
+      "howTo": "How to cook",
+      "details": "Details",
+      "faq": "FAQs",
+      "cta": "Shop now",
+      "cart": "Cart"
+    },
+    "hero": {
+      "eyebrow": "Halal · Japanese A5 & Australian wagyu",
+      "title": "Wagyu that melts before you finish the bite",
+      "lede": "Graded Japanese A5 and Australian wagyu, cut into steaks and slices and delivered frozen to your door.",
+      "points": {
+        "halal": "Certified halal, every cut",
+        "graded": "Marbling score on every pack",
+        "coldchain": "Delivered frozen in insulated boxes"
+      },
+      "rating": "{rating} out of 5 · {count, plural, one {# review} other {# reviews}}",
+      "readReviews": "Read reviews",
+      "cta": "Choose your cut",
+      "note": "From {price} · Delivered frozen to {cities}",
+      "badges": {
+        "halal": "Halal certified",
+        "graded": "BMS graded",
+        "certificate": "Certificate with A5"
+      },
+      "fine": "Choose your cut, then see your delivery date and total at checkout. Pay on delivery, by bank transfer, or with JazzCash or Easypaisa.",
+      "gallery": "Wagyu photos",
+      "prev": "Previous photo",
+      "next": "Next photo",
+      "show": "Show photo {index}",
+      "illustrative": "Photos are illustrative. Each product page shows the grade and weight you receive.",
+      "captions": {
+        "hero": "A5 striploin over binchotan",
+        "ribeye": "A5 Kagoshima ribeye",
+        "australia": "Australian wagyu ribeyes",
+        "yakiniku": "A5 yakiniku slices",
+        "shabu": "A5 shabu-shabu slices",
+        "flight": "Three-prefecture A5 tasting flight",
+        "gift": "Wagyu gift box",
+        "steak": "Seared, rested and sliced"
+      }
+    },
+    "proof": {
+      "halal": {
+        "title": "Halal certified",
+        "body": "Certificate for every shipment"
+      },
+      "graded": {
+        "title": "BMS graded",
+        "body": "Marbling score on every pack"
+      },
+      "coldchain": {
+        "title": "Cold-chain",
+        "body": "Insulated boxes, scheduled slots"
+      },
+      "pay": {
+        "title": "Cash on delivery",
+        "body": "Or bank transfer, JazzCash, Easypaisa"
+      },
+      "cities": {
+        "title": "Delivered to",
+        "body": "{cities}"
+      }
+    },
+    "problem": {
+      "eyebrow": "The problem",
+      "title": "What usually gets sold as premium beef",
+      "lede": "The label says premium. The marbling, and the way it reaches you, tell the real story.",
+      "local": {
+        "title": "Everyday local beef",
+        "body": "Lean and firm, with marbling around BMS 1–2. Good for slow cooking, but it will never melt like wagyu."
+      },
+      "imported": {
+        "title": "Imported “premium” cuts",
+        "body": "Some fat, around BMS 4–5, and often no grade on the label, so you pay for a word."
+      },
+      "refrozen": {
+        "title": "Thawed and refrozen",
+        "body": "Beef that softens in a warm van and freezes again loses juice and texture. The cold chain matters as much as the grade."
+      }
+    },
+    "appeal": {
+      "eyebrow": "Why wagyu",
+      "title": "The everyday appeal of wagyu",
+      "halal": "Halal certified",
+      "bms": "BMS 6–12",
+      "certificate": "Certificate with A5",
+      "trace": "Traceable cattle ID",
+      "frozen": "Frozen at peak",
+      "sealed": "Vacuum-sealed",
+      "portioned": "Portioned cuts",
+      "cod": "Cash on delivery"
+    },
+    "craft": {
+      "eyebrow": "Japanese craftsmanship",
+      "title": "Raised slowly, graded honestly",
+      "lede": "The details that make wagyu worth the occasion.",
+      "farm": {
+        "title": "Raised for 30+ months",
+        "body": "Kuroge cattle are raised slowly on family farms in Kagoshima, Miyazaki and Hokkaido."
+      },
+      "cut": {
+        "title": "Cut for your kitchen",
+        "body": "Steaks, yakiniku and shabu-shabu slices, portioned so nothing goes to waste."
+      },
+      "australia": {
+        "title": "Australian wagyu too",
+        "body": "Grain-fed for 400+ days for a beefier steak at a friendlier price."
+      },
+      "checks": {
+        "halal": {
+          "title": "Halal processing",
+          "body": "Certified facilities, with certificates kept for every shipment."
+        },
+        "graded": {
+          "title": "Officially graded",
+          "body": "A5 is graded by the Japan Meat Grading Association."
+        },
+        "trace": {
+          "title": "Traceable",
+          "body": "Every A5 cut carries a 10-digit cattle ID."
+        }
+      },
+      "note": "Photos are illustrative. Each product page lists the origin, grade and weight you receive."
+    },
+    "benefits": {
+      "eyebrow": "Why Wagyu Meat",
+      "title": "Why wagyu earns its place at your table",
+      "lede": "What you will notice from the first bite.",
+      "melt": {
+        "title": "Fat that melts low",
+        "body": "Wagyu fat melts at a lower temperature than ordinary beef fat, so every bite is buttery, sweet and tender."
+      },
+      "graded": {
+        "title": "Graded, not guessed",
+        "body": "Every product shows its marbling score, so you know exactly what you are paying for."
+      },
+      "halal": {
+        "title": "Halal from farm to box",
+        "body": "Slaughter and processing at halal-certified facilities, with paperwork for every shipment."
+      },
+      "frozen": {
+        "title": "Frozen, start to finish",
+        "body": "Vacuum-sealed and frozen at peak, then delivered in insulated boxes on the day you choose."
+      }
+    },
+    "compare": {
+      "eyebrow": "Side by side",
+      "title": "How your options compare",
+      "lede": "A practical look at the beef you can buy in Pakistan. Standards vary by seller, so ask for paperwork wherever you buy.",
+      "feature": "Feature",
+      "ours": "Wagyu Meat",
+      "local": "Local beef",
+      "imported": "Imported “premium”",
+      "unlabelled": "Unlabelled “wagyu”",
+      "yes": "Yes",
+      "no": "No",
+      "varies": "Varies",
+      "rows": {
+        "halal": "Halal certificate available",
+        "bms": "Marbling score stated",
+        "trace": "Origin traceable",
+        "frozen": "Delivered frozen to your door"
+      }
+    },
+    "daily": {
+      "eyebrow": "From order to plate",
+      "title": "A simpler path from order to plate",
+      "lede": "Buying premium beef should not be a gamble. Here is what changes with Wagyu Meat.",
+      "moment": "Moment",
+      "typical": "With typical beef",
+      "ours": "With Wagyu Meat",
+      "rows": {
+        "choosing": {
+          "moment": "Choosing",
+          "typical": "“Premium” on the label, with no grade or origin.",
+          "ours": "Marbling score, origin and halal certifier on every product."
+        },
+        "delivery": {
+          "moment": "Delivery",
+          "typical": "Carried warm and often soft by the time it arrives.",
+          "ours": "Frozen in an insulated box, in a time slot you choose."
+        },
+        "cooking": {
+          "moment": "Cooking",
+          "typical": "Thick, lean cuts that need long cooking.",
+          "ours": "Two to three minutes a side. The marbling does the work."
+        },
+        "serving": {
+          "moment": "Serving",
+          "typical": "250 g or more per person.",
+          "ours": "80–120 g of A5 per person is plenty."
+        }
+      }
+    },
+    "howTo": {
+      "eyebrow": "Cook it right",
+      "title": "Cook wagyu in three steps",
+      "lede": "A simple routine for steaks, yakiniku and shabu-shabu.",
+      "thaw": {
+        "title": "Thaw slowly",
+        "body": "Move it from the freezer to the fridge the night before. Keep it in the sealed pack until you cook."
+      },
+      "sear": {
+        "title": "Sear hot and fast",
+        "body": "Pat dry, salt just before cooking and sear in a very hot pan for two to three minutes a side."
+      },
+      "slice": {
+        "title": "Rest and slice",
+        "body": "Rest for five minutes, slice against the grain and serve small portions. A5 is rich."
+      }
+    },
+    "details": {
+      "eyebrow": "Every box",
+      "title": "The details behind every box",
+      "lede": "Graded wagyu, halal certified, packed frozen and delivered on a schedule.",
+      "origin": "Origin",
+      "originValue": "Japan and Australia",
+      "grades": "Grades",
+      "gradesValue": "A5 (BMS 9–12) · MB 6–9",
+      "halal": "Halal",
+      "halalValue": "Certified, every cut",
+      "packing": "Packing",
+      "packingValue": "Vacuum-sealed, frozen",
+      "delivery": "Delivery",
+      "payment": "Payment",
+      "paymentValue": "Cash on delivery, bank transfer, JazzCash, Easypaisa"
+    },
+    "faq": {
+      "eyebrow": "Questions",
+      "title": "Before you order",
+      "more": "All questions"
+    },
+    "reviews": {
+      "eyebrow": "Reviews",
+      "title": "What early customers say",
+      "sampleNote": "Sample reviews are shown until real customer reviews replace them."
+    },
+    "final": {
+      "eyebrow": "Your next step",
+      "title": "Ready to taste real wagyu?",
+      "body": "Choose your cut and see your delivery date and total before you pay. Free delivery on orders over {threshold}.",
+      "points": {
+        "compare": "Compare Japanese A5 and Australian cuts.",
+        "slot": "Pick a delivery day and time slot.",
+        "pay": "Pay on delivery or online."
+      },
+      "card": "Popular cuts",
+      "from": "from",
+      "note": "Prices in PKR. The delivery fee for your city is shown at checkout."
+    },
+    "sticky": {
+      "line1": "Halal certified · Cold-chain delivery",
+      "line2": "Japanese A5 & Australian wagyu",
+      "from": "From {price}"
+    },
+    "footer": {
+      "languages": "Language"
+    }
   }
 }

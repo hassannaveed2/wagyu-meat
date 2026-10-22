@@ -2,7 +2,7 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { useActionState } from "react";
-import { trackOrder, type TrackState } from "@/app/[locale]/track/actions";
+import { trackOrder, type TrackState } from "@/app/[locale]/(site)/track/actions";
 
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";

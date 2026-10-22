@@ -4,13 +4,11 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { CommerceProvider, type CatalogEntry } from "@/components/commerce/CommerceProvider";
-import { Footer } from "@/components/layout/Footer";
-import { Header, type MenuGroup } from "@/components/layout/Header";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
-import { getCatalog, getCategories } from "@/db/queries/catalog";
+import { getCatalog } from "@/db/queries/catalog";
 import { getCities, getSettings } from "@/db/queries/content";
 import { routing } from "@/i18n/routing";
-import { localized, type Locale } from "@/lib/i18n-db";
+import type { Locale } from "@/lib/i18n-db";
 import { buildAlternates, SITE_URL } from "@/lib/seo";
 import "../globals.css";
 
@@ -56,17 +54,7 @@ export const viewport: Viewport = {
 
 export default async function LocaleLayout({ children }: LayoutProps<"/[locale]">) {
   const locale = (await getLocale()) as Locale;
-  const [settings, cities, categories, catalog] = await Promise.all([
-    getSettings(),
-    getCities(locale),
-    getCategories(locale),
-    getCatalog(locale),
-  ]);
-
-  const menu: MenuGroup[] = (["origin", "cut", "occasion"] as const).map((key) => ({
-    key,
-    items: categories.filter((c) => c.type === key).map((c) => ({ slug: c.slug, name: c.name })),
-  }));
+  const [settings, cities, catalog] = await Promise.all([getSettings(), getCities(locale), getCatalog(locale)]);
 
   const lookup: Record<string, CatalogEntry> = {};
   for (const product of catalog) {
@@ -89,9 +77,8 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
       <body className="min-h-screen">
         <NextIntlClientProvider>
           <CommerceProvider catalog={lookup} cities={cities} whatsappNumber={settings.whatsappNumber}>
-            <Header announcement={localized(settings.announcement.en, settings.announcement.ja, locale)} menu={menu} />
-            <main id="main">{children}</main>
-            <Footer settings={settings} />
+            {/* Header and footer come from the (site) group layout; /v2 renders its own. */}
+            {children}
             <CartDrawer />
             <WhatsAppFloat />
           </CommerceProvider>

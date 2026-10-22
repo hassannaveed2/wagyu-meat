@@ -32,5 +32,6 @@ Shared art direction: editorial food photography, dark slate/walnut/hinoki surfa
 | bms-5 | 1:1 | Macro texture: prime beef, BMS ~5 | 6b090909-60ef-4da2-8f84-3e1f7a51d6cf |
 | bms-8 | 1:1 | Macro texture: Australian wagyu, MB ~8 | a726aa95-2ccf-4fd5-8c81-a81e7ea2fb11 |
 | bms-12 | 1:1 | Macro texture: Japanese A5, BMS 12 | cb158b56-0de4-4dc9-9b0d-a79ecb4bc3d1 |
+| problem-refrozen | 4:3 | Freezer-burnt steak in a torn bag with thaw water (used on /v2) | d72de96a-8d15-4a29-a01a-65ec03ce2e27 |
 
 Replace them with real photography of your own stock before launch where possible. Customers buying A5 expect to see the actual marbling of what they receive.

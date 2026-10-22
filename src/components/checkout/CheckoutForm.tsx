@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState, useTransition, type ReactNode } from "react";
-import { placeOrder, type PlaceOrderResult } from "@/app/[locale]/checkout/actions";
+import { placeOrder, type PlaceOrderResult } from "@/app/[locale]/(site)/checkout/actions";
 import { useCartView } from "@/components/cart/useCartView";
 import { useCommerce } from "@/components/commerce/CommerceProvider";
 

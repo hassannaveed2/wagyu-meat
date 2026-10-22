@@ -1,7 +1,15 @@
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 
-export function Logo({ tone = "dark", className }: { tone?: "dark" | "light"; className?: string }) {
+export function Logo({
+  tone = "dark",
+  className,
+  wordmarkClassName,
+}: {
+  tone?: "dark" | "light";
+  className?: string;
+  wordmarkClassName?: string;
+}) {
   return (
     <Link href="/" className={cn("group inline-flex items-center gap-2.5", className)} aria-label="Wagyu Meat">
       <span
@@ -15,6 +23,7 @@ export function Logo({ tone = "dark", className }: { tone?: "dark" | "light"; cl
         className={cn(
           "font-[family-name:var(--font-display-en)] text-[1.35rem] font-semibold leading-none tracking-[0.14em]",
           tone === "dark" ? "text-ink" : "text-paper",
+          wordmarkClassName,
         )}
       >
         WAGYU MEAT
