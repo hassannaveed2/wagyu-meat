@@ -1,0 +1,1174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wagyu Meat — The Quiet Art of Wagyu</title>
+<meta name="description" content="Home page mockup: Wagyu Meat as a traditional Japanese luxury kitchen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Shippori+Mincho+B1:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sumi: #0f0d0b;
+    --sumi-2: #181512;
+    --sumi-3: #24201b;
+    --washi: #f2ece0;
+    --washi-2: #e7dfcf;
+    --ink: #1b1714;
+    --ink-2: #5d5348;
+    --ink-3: #8c8174;
+    --hinoki: #d4b483;
+    --gold: #b8955a;
+    --gold-soft: rgba(184, 149, 90, 0.35);
+    --shu: #a8322a;
+    --indigo: #1c2333;
+    --line-dark: rgba(242, 236, 224, 0.14);
+    --line-light: rgba(27, 23, 20, 0.14);
+
+    --serif: "Cormorant Garamond", "Shippori Mincho B1", Georgia, serif;
+    --mincho: "Shippori Mincho B1", "Cormorant Garamond", serif;
+    --sans: "Zen Kaku Gothic New", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --gutter: clamp(20px, 5vw, 72px);
+  }
+  html[lang="ja"] { --serif: "Shippori Mincho B1", "Cormorant Garamond", serif; }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--sumi);
+    color: var(--washi);
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img, video { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+  em { font-style: italic; }
+  html[lang="ja"] em { font-style: normal; color: var(--hinoki); }
+  ::selection { background: var(--shu); color: var(--washi); }
+  :focus-visible { outline: 1px solid var(--hinoki); outline-offset: 4px; }
+
+  /* Film grain over everything */
+  body::after {
+    content: "";
+    position: fixed; inset: -50%;
+    pointer-events: none; z-index: 90;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    animation: grain 1.2s steps(6) infinite;
+  }
+  @keyframes grain {
+    0% { transform: translate(0, 0); } 20% { transform: translate(-3%, 2%); } 40% { transform: translate(2%, -3%); }
+    60% { transform: translate(-2%, -1%); } 80% { transform: translate(3%, 3%); } 100% { transform: translate(0, 0); }
+  }
+
+  .wrap { width: 100%; max-width: 1360px; margin: 0 auto; padding: 0 var(--gutter); }
+  /* Washi: the generated paper texture, softened so fibres whisper rather than shout. */
+  .washi {
+    background-color: var(--washi);
+    background-image: linear-gradient(rgba(242, 236, 224, 0.78), rgba(242, 236, 224, 0.78)), url("assets/washi.webp");
+    background-size: auto, 1100px;
+    color: var(--ink);
+  }
+  /* Ink artworks sit on their own paper; feather the edges into the page. */
+  .feather { mix-blend-mode: multiply; -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent 100%); mask-image: radial-gradient(closest-side, #000 72%, transparent 100%); }
+  .feather img { filter: brightness(1.07) contrast(1.06); }
+  .label {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.32em; text-transform: uppercase;
+  }
+  .label::before { content: ""; width: 36px; height: 1px; background: currentColor; opacity: 0.5; }
+  .label .kanji { font-family: var(--mincho); font-size: 1rem; letter-spacing: 0; text-transform: none; }
+  html[lang="ja"] .label .kanji, html[lang="ja"] .cart__head h2 small { display: none; } /* the translated label already says it */
+  .display {
+    font-family: var(--serif); font-weight: 300;
+    line-height: 1.04; letter-spacing: -0.01em; margin: 0;
+    text-wrap: balance;
+  }
+  html[lang="ja"] .display { font-weight: 500; line-height: 1.35; letter-spacing: 0.04em; word-break: auto-phrase; }
+  .tategaki { writing-mode: vertical-rl; text-orientation: upright; font-family: var(--mincho); letter-spacing: 0.35em; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 14px;
+    padding: 16px 30px;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
+    border: 1px solid currentColor;
+    transition: background 0.5s var(--ease), color 0.5s var(--ease), border-color 0.5s var(--ease);
+  }
+  .btn--solid { background: var(--washi); color: var(--sumi); border-color: var(--washi); }
+  .btn--solid:hover { background: var(--hinoki); border-color: var(--hinoki); }
+  .btn--ghost:hover { background: var(--washi); color: var(--sumi); }
+  .btn--ink { border-color: var(--ink); color: var(--ink); }
+  .btn--ink:hover { background: var(--ink); color: var(--washi); }
+  .btn .arrow { width: 28px; height: 1px; background: currentColor; position: relative; transition: width 0.5s var(--ease); }
+  .btn .arrow::after { content: ""; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
+  .btn:hover .arrow { width: 40px; }
+  .link {
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
+    background: linear-gradient(currentColor, currentColor) left bottom / 100% 1px no-repeat;
+    padding-bottom: 6px; transition: background-size 0.5s var(--ease);
+  }
+  .link:hover { background-size: 40% 1px; }
+
+  /* Hanko seal logo */
+  .hanko {
+    display: inline-grid; place-items: center;
+    width: 42px; height: 42px; border-radius: 3px;
+    background: var(--shu); color: var(--washi);
+    font-family: var(--mincho); font-weight: 700; font-size: 0.95rem; line-height: 1;
+    writing-mode: vertical-rl; letter-spacing: 0.05em;
+    box-shadow: inset 0 0 0 2px rgba(242, 236, 224, 0.18);
+  }
+  .brand { display: inline-flex; align-items: center; gap: 14px; }
+  .brand__name { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 1.15rem; letter-spacing: 0.34em; }
+
+  /* ---------- Noren intro ---------- */
+  .noren { position: fixed; inset: 0; z-index: 100; display: flex; pointer-events: none; }
+  .noren__panel {
+    flex: 1; background: var(--indigo);
+    background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 6px);
+    transition: transform 1.4s var(--ease) 0.15s;
+  }
+  .noren__panel:first-child { border-right: 1px solid rgba(0,0,0,0.4); }
+  .noren__crest {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    display: grid; place-items: center; gap: 18px; text-align: center;
+    transition: opacity 0.6s var(--ease);
+  }
+  .noren__crest .hanko { width: 74px; height: 74px; font-size: 1.6rem; }
+  .noren__crest span { font-family: "Cormorant Garamond", serif; letter-spacing: 0.5em; font-size: 0.85rem; color: rgba(242,236,224,0.7); }
+  .is-open .noren__panel:first-child { transform: translateX(-101%); }
+  .is-open .noren__panel:nth-child(2) { transform: translateX(101%); }
+  .is-open .noren__crest { opacity: 0; }
+
+  /* ---------- Header ---------- */
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    transition: background 0.6s var(--ease), padding 0.6s var(--ease), border-color 0.6s var(--ease);
+    padding: 26px 0; border-bottom: 1px solid transparent;
+  }
+  .header.is-solid { background: rgba(15, 13, 11, 0.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding: 14px 0; border-color: var(--line-dark); }
+  .header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .nav { display: flex; align-items: center; gap: 38px; }
+  .nav a { font-size: 0.74rem; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; opacity: 0.82; transition: opacity 0.3s; position: relative; }
+  .nav a:hover { opacity: 1; }
+  .nav a small { display: block; font-family: var(--mincho); font-size: 0.68rem; letter-spacing: 0.2em; opacity: 0.55; text-transform: none; margin-top: 2px; }
+  html[lang="ja"] .nav a small { display: none; }
+  .header__aside { display: flex; align-items: center; gap: 22px; }
+  .lang { display: flex; gap: 2px; font-size: 0.72rem; letter-spacing: 0.14em; }
+  .lang button { padding: 6px 8px; opacity: 0.5; transition: opacity 0.3s; }
+  .lang button[aria-pressed="true"] { opacity: 1; border-bottom: 1px solid var(--hinoki); }
+  .header .btn { padding: 11px 20px; font-size: 0.7rem; }
+  .menu-toggle { display: none; font-size: 0.72rem; letter-spacing: 0.26em; text-transform: uppercase; }
+  .drawer {
+    position: fixed; inset: 0; z-index: 60; background: var(--sumi);
+    display: flex; flex-direction: column; justify-content: center; gap: 28px; padding: 0 var(--gutter);
+    opacity: 0; pointer-events: none; transition: opacity 0.5s var(--ease);
+  }
+  .drawer.is-open { opacity: 1; pointer-events: auto; }
+  .drawer a { font-family: var(--serif); font-size: 2.4rem; font-weight: 300; }
+  .drawer a small { font-family: var(--mincho); font-size: 0.9rem; margin-left: 14px; color: var(--hinoki); }
+  .drawer__close { position: absolute; top: 26px; right: var(--gutter); font-size: 0.72rem; letter-spacing: 0.26em; text-transform: uppercase; }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; height: 100svh; min-height: 640px; overflow: hidden; }
+  .hero__media { position: absolute; inset: -6% 0 0 0; will-change: transform; }
+  .hero__media video, .hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: 1;
+    background:
+      linear-gradient(90deg, rgba(15,13,11,0.92) 0%, rgba(15,13,11,0.62) 34%, rgba(15,13,11,0.05) 64%),
+      linear-gradient(0deg, rgba(15,13,11,0.85) 0%, rgba(15,13,11,0) 30%),
+      linear-gradient(180deg, rgba(15,13,11,0.6) 0%, rgba(15,13,11,0) 22%);
+  }
+  .hero__content { position: relative; z-index: 2; height: 100%; display: flex; align-items: center; }
+  .hero__inner { max-width: 640px; padding-top: 60px; }
+  .hero__eyebrow { color: var(--hinoki); }
+  .hero h1 { font-size: clamp(3.2rem, 7.4vw, 7rem); margin: 28px 0 0; }
+  .hero h1 em { color: var(--hinoki); }
+  .hero__lede { max-width: 470px; margin: 30px 0 0; font-size: 1.06rem; color: rgba(242,236,224,0.78); }
+  .hero__ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 30px; margin-top: 44px; }
+  .hero__ichigo {
+    position: absolute; z-index: 2; right: var(--gutter); top: 50%; transform: translateY(-50%);
+    font-size: 1.15rem; color: rgba(242,236,224,0.85);
+    display: flex; flex-direction: column; align-items: center; gap: 18px;
+  }
+  .hero__ichigo .seal { width: 26px; height: 26px; background: var(--shu); border-radius: 2px; display: grid; place-items: center; font-size: 0.6rem; writing-mode: horizontal-tb; letter-spacing: 0; }
+  .hero__ichigo small { writing-mode: vertical-rl; font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.4em; text-transform: uppercase; opacity: 0.55; }
+  .hero__foot {
+    position: absolute; z-index: 2; left: 0; right: 0; bottom: 34px;
+  }
+  .hero__foot .wrap { display: flex; justify-content: space-between; align-items: flex-end; }
+  .caption { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,236,224,0.6); display: flex; align-items: center; gap: 12px; }
+  .caption::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--shu); }
+  .scroll { display: flex; flex-direction: column; align-items: center; gap: 12px; font-size: 0.62rem; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(242,236,224,0.6); }
+  .scroll__line { width: 1px; height: 64px; background: rgba(242,236,224,0.2); position: relative; overflow: hidden; }
+  .scroll__line::after { content: ""; position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: var(--hinoki); animation: drip 2.4s var(--ease) infinite; }
+  @keyframes drip { to { top: 100%; } }
+
+  /* ---------- Prologue ---------- */
+  .prologue { padding: clamp(110px, 16vw, 200px) 0; position: relative; overflow: hidden; }
+  .prologue__grid { display: grid; grid-template-columns: 1fr minmax(0, 1.25fr) auto; gap: clamp(32px, 6vw, 96px); align-items: center; }
+  .prologue__enso { position: relative; aspect-ratio: 1; }
+  .prologue__enso img { width: 100%; height: 100%; object-fit: cover; }
+  .prologue__enso span {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -52%);
+    font-family: var(--mincho); font-size: clamp(2.6rem, 5vw, 4.4rem); color: var(--ink); opacity: 0.85;
+  }
+  .prologue .label { color: var(--ink-2); }
+  .prologue__text { font-family: var(--serif); font-weight: 300; font-size: clamp(1.7rem, 2.7vw, 2.55rem); line-height: 1.32; margin: 26px 0 0; color: var(--ink); }
+  html[lang="ja"] .prologue__text { font-weight: 500; font-size: clamp(1.35rem, 2.1vw, 1.9rem); line-height: 1.85; }
+  .prologue__text em { color: var(--shu); }
+  html[lang="ja"] .prologue__text em { color: var(--shu); }
+  .prologue__body { margin: 30px 0 0; max-width: 520px; color: var(--ink-2); }
+  .signature { display: flex; align-items: center; gap: 14px; margin-top: 34px; font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.15rem; color: var(--ink-2); }
+  .signature .hanko { width: 30px; height: 30px; font-size: 0.62rem; }
+  .prologue__vertical { font-size: 1.25rem; color: var(--ink); white-space: nowrap; letter-spacing: 0.42em; border-left: 1px solid var(--line-light); padding-left: 22px; margin: 0; }
+
+  /* ---------- Craft ---------- */
+  .craft { padding: clamp(100px, 13vw, 170px) 0 clamp(60px, 8vw, 120px); background: var(--sumi); }
+  .craft__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; margin-bottom: clamp(70px, 9vw, 130px); }
+  .craft__head .label { color: var(--hinoki); }
+  .craft__head h2 { font-size: clamp(2.6rem, 5vw, 4.6rem); margin-top: 22px; max-width: 12em; }
+  .craft__head p { max-width: 360px; margin: 0; color: rgba(242,236,224,0.6); }
+  .chapter { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: center; position: relative; margin-bottom: clamp(90px, 12vw, 180px); }
+  .chapter:last-child { margin-bottom: 0; }
+  .chapter__media { grid-column: 1 / span 7; position: relative; z-index: 1; overflow: hidden; }
+  .chapter__media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .chapter__media--tall img { aspect-ratio: 4 / 5; }
+  .chapter__text { grid-column: 9 / span 4; position: relative; z-index: 2; }
+  .chapter--flip .chapter__media { grid-column: 6 / span 7; grid-row: 1; }
+  .chapter--flip .chapter__text { grid-column: 1 / span 4; grid-row: 1; }
+  .chapter__kicker { display: flex; align-items: baseline; gap: 18px; color: var(--hinoki); }
+  .chapter__kicker b { font-family: var(--mincho); font-weight: 500; font-size: 2.2rem; line-height: 1; }
+  .chapter__kicker span { font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase; }
+  .chapter h3 { font-size: clamp(2rem, 3.2vw, 3rem); margin-top: 22px; }
+  .chapter p { color: rgba(242,236,224,0.66); margin: 22px 0 0; }
+  .chapter__meta { margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--line-dark); font-size: 0.7rem; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(242,236,224,0.5); }
+  .chapter__frame { position: absolute; inset: 18px; border: 1px solid rgba(242,236,224,0.22); pointer-events: none; z-index: 2; }
+
+  /* ---------- Counter (video) ---------- */
+  .counter { position: relative; min-height: 100svh; display: flex; align-items: flex-end; overflow: hidden; }
+  .counter__media { position: absolute; inset: 0; }
+  .counter__media video, .counter__media img { width: 100%; height: 100%; object-fit: cover; }
+  .counter::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, var(--sumi) 0%, rgba(15,13,11,0.25) 26%, rgba(15,13,11,0.35) 55%, rgba(15,13,11,0.96) 100%); }
+  .counter__content { position: relative; z-index: 2; width: 100%; padding-bottom: clamp(60px, 8vw, 100px); }
+  .counter .label { color: var(--hinoki); }
+  .counter h2 { font-size: clamp(2.8rem, 6.4vw, 6.2rem); margin-top: 24px; max-width: 10em; }
+  .counter h2 em { color: var(--hinoki); }
+  .counter__lede { max-width: 440px; margin: 26px 0 0; color: rgba(242,236,224,0.72); }
+  .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: clamp(56px, 7vw, 90px); border-top: 1px solid var(--gold-soft); }
+  .stat { padding: 28px 24px 0 0; border-right: 1px solid var(--line-dark); margin-right: 24px; }
+  .stat:last-child { border-right: 0; }
+  .stat b { display: block; font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: clamp(2.6rem, 4.2vw, 3.8rem); line-height: 1; color: var(--washi); }
+  .stat span { display: block; margin-top: 12px; font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(242,236,224,0.55); }
+  html[lang="ja"] .stat span { letter-spacing: 0.12em; }
+
+  /* ---------- Collection: products, each shown with its certificate ---------- */
+  .collection { padding: clamp(110px, 14vw, 180px) 0; }
+  .collection__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; margin-bottom: clamp(56px, 7vw, 96px); }
+  .collection .label { color: var(--ink-2); }
+  .collection h2 { font-size: clamp(2.6rem, 5vw, 4.6rem); margin-top: 22px; color: var(--ink); max-width: 11em; }
+  .collection h2 em { color: var(--shu); }
+  .collection__lede { max-width: 400px; margin: 0; color: var(--ink-2); }
+
+  .feature { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(36px, 6vw, 96px); align-items: center; margin-bottom: clamp(80px, 10vw, 140px); }
+  .feature__media { position: relative; }
+  .feature__media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; box-shadow: 0 50px 90px -50px rgba(15,13,11,0.7); }
+  .feature__ja { position: absolute; top: 28px; left: -46px; font-size: 1.05rem; color: var(--ink); }
+  .seal-tag {
+    position: absolute; top: 22px; right: 22px;
+    display: grid; place-items: center; width: 70px; height: 70px; border-radius: 50%;
+    background: var(--shu); color: var(--washi); text-align: center; line-height: 1.05;
+    font-family: "Cormorant Garamond", serif; font-size: 1.35rem; font-weight: 500;
+    box-shadow: inset 0 0 0 3px rgba(242,236,224,0.25);
+  }
+  .seal-tag small { display: block; font-family: var(--sans); font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.85; }
+  .feature__kicker { display: flex; align-items: center; gap: 14px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--shu); }
+  .feature__kicker b { font-family: var(--mincho); font-size: 1.4rem; font-weight: 500; letter-spacing: 0; }
+  .feature h3 { font-size: clamp(2.3rem, 3.8vw, 3.5rem); margin-top: 18px; color: var(--ink); }
+  .feature__sub { margin: 6px 0 0; font-family: var(--mincho); color: var(--ink-3); letter-spacing: 0.12em; }
+  .feature__desc { margin: 22px 0 0; color: var(--ink-2); max-width: 480px; }
+  .specs { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line-light); }
+  .specs li { padding: 14px 0; border-bottom: 1px solid var(--line-light); font-size: 0.86rem; }
+  .specs li:nth-child(odd) { padding-right: 18px; }
+  .specs span { display: block; font-size: 0.64rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-3); }
+
+  .weights { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+  .weight {
+    padding: 11px 18px; border: 1px solid var(--line-light); color: var(--ink-2);
+    font-size: 0.82rem; letter-spacing: 0.06em; transition: border-color 0.3s, color 0.3s, background 0.3s;
+  }
+  .weight:hover { border-color: var(--ink); color: var(--ink); }
+  .weight[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--washi); }
+  .buy { display: flex; align-items: center; flex-wrap: wrap; gap: 18px 22px; margin-top: 26px; }
+  .price { font-family: "Cormorant Garamond", serif; font-size: 2.3rem; font-weight: 400; line-height: 1; color: var(--ink); min-width: 6.2em; }
+  .price s { font-size: 0.55em; color: var(--ink-3); margin-left: 10px; }
+  .qty { display: inline-flex; align-items: center; border: 1px solid var(--line-light); }
+  .qty button { width: 42px; height: 48px; font-size: 1.1rem; color: var(--ink-2); }
+  .qty button:hover { color: var(--ink); }
+  .qty output { min-width: 28px; text-align: center; font-size: 0.95rem; color: var(--ink); }
+  .add {
+    display: inline-flex; align-items: center; justify-content: center; gap: 14px;
+    padding: 0 30px; height: 50px; background: var(--ink); color: var(--washi);
+    font-size: 0.76rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
+    transition: background 0.4s var(--ease), transform 0.2s;
+  }
+  .add:hover { background: var(--shu); }
+  .add:active { transform: scale(0.98); }
+  .add.is-added { background: #2f5b3f; }
+  .add .tick { display: none; }
+  .add.is-added .tick { display: inline; }
+  .add.is-added .arrow { display: none; }
+  .feature .add { flex: 1; min-width: 220px; }
+  .reassure { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 22px; font-size: 0.74rem; color: var(--ink-3); }
+  .reassure span::before { content: "—"; margin-right: 8px; color: var(--gold); }
+
+  .products { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(20px, 2.4vw, 34px); }
+  .product { display: flex; flex-direction: column; }
+  .product__media { position: relative; overflow: hidden; }
+  .product__media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transition: transform 1.4s var(--ease); }
+  .product:hover .product__media img { transform: scale(1.05); }
+  .product__ja { position: absolute; top: 16px; left: 14px; font-size: 0.86rem; color: var(--washi); text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
+  .product__cert {
+    position: absolute; left: 14px; bottom: 14px;
+    display: inline-flex; align-items: center; gap: 8px; padding: 7px 11px;
+    background: rgba(242,236,224,0.92); color: var(--ink);
+    font-size: 0.62rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .product__cert::before { content: ""; width: 9px; height: 9px; background: var(--shu); border-radius: 1px; }
+  .product__meta { margin-top: 18px; font-size: 0.66rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-3); }
+  .product h3 { margin: 8px 0 0; font-family: var(--serif); font-weight: 400; font-size: 1.5rem; line-height: 1.2; color: var(--ink); }
+  html[lang="ja"] .product h3 { font-weight: 500; font-size: 1.2rem; line-height: 1.5; }
+  .product .weights { margin-top: 16px; gap: 6px; }
+  .product .weight { padding: 7px 11px; font-size: 0.74rem; }
+  .product__foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 18px; }
+  .product .price { font-size: 1.55rem; min-width: 0; }
+  .product .price s { display: block; margin: 4px 0 0; font-size: 0.55em; }
+  .product .add { height: 44px; padding: 0 16px; font-size: 0.66rem; letter-spacing: 0.18em; white-space: nowrap; }
+  .product .add .arrow { display: none; }
+  .product__spacer { flex: 1; min-height: 6px; }
+  .collection__foot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; margin-top: clamp(50px, 6vw, 80px); padding-top: 26px; border-top: 1px solid var(--line-light); font-size: 0.8rem; color: var(--ink-3); }
+  .collection__foot .link { color: var(--ink); }
+
+  /* ---------- Cart ---------- */
+  .cart-btn { display: inline-flex; align-items: center; gap: 10px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; }
+  .cart-btn svg { width: 20px; height: 20px; }
+  .cart-count {
+    display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 11px;
+    background: var(--shu); color: var(--washi); font-size: 0.7rem; letter-spacing: 0;
+    transition: transform 0.3s var(--ease);
+  }
+  .cart-count.is-bump { animation: bump 0.5s var(--ease); }
+  @keyframes bump { 40% { transform: scale(1.35); } }
+  .cart-scrim { position: fixed; inset: 0; z-index: 70; background: rgba(15,13,11,0.55); opacity: 0; pointer-events: none; transition: opacity 0.5s var(--ease); }
+  .cart {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 71; width: min(440px, 100%);
+    display: flex; flex-direction: column; color: var(--ink);
+    transform: translateX(100%); transition: transform 0.6s var(--ease), visibility 0s linear 0.6s;
+    visibility: hidden;
+  }
+  .cart-open .cart { transform: none; visibility: visible; transition: transform 0.6s var(--ease); box-shadow: -40px 0 80px -40px rgba(0,0,0,0.6); }
+  .cart-open .cart-scrim { opacity: 1; pointer-events: auto; }
+  .cart__head { display: flex; justify-content: space-between; align-items: center; padding: 26px 30px; border-bottom: 1px solid var(--line-light); }
+  .cart__head h2 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: 1.7rem; }
+  .cart__head h2 small { font-family: var(--mincho); font-size: 0.85rem; color: var(--ink-3); margin-left: 10px; }
+  .cart__close { font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-2); }
+  .cart__items { flex: 1; overflow-y: auto; padding: 8px 30px; list-style: none; margin: 0; }
+  .cart__empty { padding: 60px 0; text-align: center; color: var(--ink-3); font-family: var(--serif); font-style: italic; font-size: 1.25rem; }
+  .line { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line-light); }
+  .line img { width: 76px; aspect-ratio: 4 / 5; object-fit: cover; }
+  .line h3 { margin: 0; font-family: var(--serif); font-weight: 500; font-size: 1.12rem; line-height: 1.25; }
+  .line p { margin: 4px 0 10px; font-size: 0.76rem; color: var(--ink-3); }
+  .line .qty button { width: 30px; height: 32px; font-size: 0.95rem; }
+  .line .qty output { min-width: 22px; font-size: 0.82rem; }
+  .line__price { text-align: right; font-family: "Cormorant Garamond", serif; font-size: 1.15rem; }
+  .line__remove { display: block; margin-top: 8px; margin-left: auto; font-size: 0.64rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3); }
+  .line__remove:hover { color: var(--shu); }
+  .cart__foot { padding: 24px 30px 30px; border-top: 1px solid var(--line-light); }
+  .cart__row { display: flex; justify-content: space-between; align-items: baseline; }
+  .cart__row span { font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-2); }
+  .cart__row b { font-family: "Cormorant Garamond", serif; font-weight: 400; font-size: 1.9rem; }
+  .cart__note { margin: 8px 0 20px; font-size: 0.78rem; color: var(--ink-3); }
+  .cart__note.is-free { color: #2f5b3f; }
+  .cart__foot .add { width: 100%; }
+  .cart__foot .link { display: block; width: max-content; margin: 18px auto 0; color: var(--ink-2); }
+
+  /* ---------- Ritual ---------- */
+  .ritual { padding: clamp(110px, 14vw, 180px) 0; background: var(--sumi-2); }
+  .ritual__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 8vw, 130px); align-items: center; }
+  .ritual__media { position: relative; }
+  .ritual__media img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+  .ritual__media figcaption { margin-top: 16px; }
+  .ritual .label { color: var(--hinoki); }
+  .ritual h2 { font-size: clamp(2.6rem, 4.6vw, 4.3rem); margin-top: 22px; }
+  .steps { list-style: none; margin: 50px 0 0; padding: 0; }
+  .step { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 22px; padding: 26px 0; border-top: 1px solid var(--line-dark); }
+  .step:last-child { border-bottom: 1px solid var(--line-dark); }
+  .step__n { font-family: var(--mincho); font-size: 2.3rem; line-height: 1; color: var(--hinoki); }
+  .step h3 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: 1.6rem; line-height: 1.2; }
+  .step h3 small { font-family: var(--mincho); font-size: 0.95rem; color: rgba(242,236,224,0.45); margin-left: 12px; }
+  html[lang="ja"] .step h3 small { display: none; }
+  .step p { margin: 8px 0 0; color: rgba(242,236,224,0.62); }
+
+  /* ---------- Omotenashi ---------- */
+  .omotenashi { position: relative; padding: clamp(110px, 14vw, 180px) 0; overflow: hidden; }
+  .omotenashi__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: start; }
+  .omotenashi__video { grid-column: 1 / span 8; grid-row: 1; position: relative; }
+  .omotenashi__video video, .omotenashi__video img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+  .omotenashi__card { grid-column: 6 / span 7; grid-row: 1; position: relative; z-index: 2; margin-top: clamp(200px, 24vw, 340px); color: var(--ink); padding: clamp(28px, 4vw, 52px); display: grid; grid-template-columns: minmax(0, 0.75fr) minmax(0, 1fr); gap: clamp(24px, 3.4vw, 48px); align-items: end; box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8); }
+  .omotenashi__card img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .omotenashi .label { color: var(--shu); }
+  .omotenashi h2 { font-size: clamp(1.9rem, 2.7vw, 2.6rem); margin-top: 18px; color: var(--ink); }
+  .omotenashi p { color: var(--ink-2); margin: 18px 0 26px; }
+  .omotenashi__vertical { position: absolute; top: clamp(110px, 14vw, 180px); right: var(--gutter); font-size: 1.05rem; color: rgba(242,236,224,0.7); }
+
+  /* ---------- Saying ---------- */
+  .saying { padding: clamp(100px, 13vw, 170px) 0; }
+  .saying__grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(40px, 7vw, 120px); align-items: center; }
+  .saying__art img { width: 100%; }
+  .saying blockquote { margin: 0; }
+  .saying__ja { font-family: var(--mincho); font-weight: 500; font-size: clamp(1.9rem, 3.4vw, 3rem); line-height: 1.6; color: var(--ink); letter-spacing: 0.08em; }
+  .saying__en { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 300; font-size: clamp(1.4rem, 2.2vw, 1.9rem); color: var(--ink-2); margin-top: 18px; }
+  .saying cite { display: flex; align-items: center; gap: 14px; margin-top: 34px; font-style: normal; font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink-3); }
+  .saying cite::before { content: ""; width: 36px; height: 1px; background: currentColor; }
+  .saying__body { margin-top: 44px; color: var(--ink-2); max-width: 470px; }
+
+  /* ---------- Closing (byobu) ---------- */
+  .closing { position: relative; min-height: 92svh; display: flex; align-items: center; overflow: hidden; }
+  .closing__art { position: absolute; inset: 0; }
+  .closing__art img { width: 100%; height: 100%; object-fit: cover; object-position: left center; }
+  .closing::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(15,13,11,0) 30%, rgba(15,13,11,0.55) 62%, rgba(15,13,11,0.75) 100%); }
+  .closing__content { position: relative; z-index: 2; width: 100%; }
+  .closing__inner { margin-left: auto; max-width: 520px; }
+  .closing .label { color: var(--hinoki); }
+  .closing h2 { font-size: clamp(3rem, 6vw, 5.8rem); margin-top: 24px; }
+  .closing h2 em { color: var(--hinoki); }
+  .closing p { margin: 26px 0 40px; color: rgba(242,236,224,0.74); }
+  .closing__ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 30px; }
+
+  /* ---------- Footer ---------- */
+  .footer { padding: 100px 0 40px; border-top: 1px solid var(--line-dark); position: relative; overflow: hidden; }
+  .footer__grid { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 40px; }
+  .footer__tag { margin: 26px 0 0; max-width: 320px; color: rgba(242,236,224,0.55); font-size: 0.92rem; }
+  .footer h4 { margin: 0 0 18px; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--hinoki); }
+  .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 0.92rem; color: rgba(242,236,224,0.72); }
+  .footer ul a:hover { color: var(--washi); }
+  .footer__bottom { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 90px; padding-top: 26px; border-top: 1px solid var(--line-dark); font-size: 0.72rem; letter-spacing: 0.16em; color: rgba(242,236,224,0.4); }
+  .footer__watermark { position: absolute; right: -0.08em; bottom: -0.2em; font-family: var(--mincho); font-size: clamp(10rem, 24vw, 22rem); line-height: 1; color: rgba(242,236,224,0.03); pointer-events: none; }
+
+  /* ---------- Motion ---------- */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1.3s var(--ease), transform 1.3s var(--ease); }
+  .reveal.is-in { opacity: 1; transform: none; }
+  .reveal[data-delay="1"] { transition-delay: 0.12s; } .reveal[data-delay="2"] { transition-delay: 0.24s; } .reveal[data-delay="3"] { transition-delay: 0.36s; } .reveal[data-delay="4"] { transition-delay: 0.48s; }
+  .zoom { overflow: hidden; }
+  .zoom img, .zoom video { transform: scale(1.12); transition: transform 2.4s var(--ease); }
+  .zoom.is-in img, .zoom.is-in video { transform: scale(1); }
+  .hero .reveal { transition-duration: 1.6s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+    .zoom img, .zoom video { transform: none; }
+    .noren { display: none; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1280px) {
+    .header .btn { display: none; }
+    .nav { gap: 26px; }
+  }
+  @media (max-width: 1080px) {
+    .nav { display: none; }
+    .menu-toggle { display: inline-block; }
+    .header .btn { display: none; }
+    .prologue__grid { grid-template-columns: minmax(0, 1fr); }
+    .prologue__enso { max-width: 300px; }
+    .prologue__vertical { display: none; }
+    .chapter__media, .chapter--flip .chapter__media { grid-column: 1 / -1; grid-row: 1; }
+    .chapter__text, .chapter--flip .chapter__text { grid-column: 1 / -1; grid-row: 2; margin-top: 36px; }
+    .ritual__grid, .saying__grid, .feature { grid-template-columns: minmax(0, 1fr); }
+    .products { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 56px; }
+    .feature__ja { display: none; }
+    .omotenashi__video { grid-column: 1 / -1; }
+    .omotenashi__card { grid-column: 2 / -1; margin-top: -80px; grid-row: 2; }
+    .omotenashi__vertical { display: none; }
+    .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 760px) {
+    .header .wrap { gap: 12px; }
+    .brand { gap: 10px; }
+    .brand .hanko { width: 36px; height: 36px; font-size: 0.8rem; }
+    .brand__name { font-size: 0.86rem; letter-spacing: 0.22em; white-space: nowrap; }
+    .header__aside { gap: 10px; }
+    .lang button, .menu-toggle { white-space: nowrap; }
+    .lang button { padding: 6px 5px; }
+    .hero .scroll { display: none; }
+    .hero__ichigo { display: none; }
+    .hero__inner { padding-top: 90px; }
+    .hero::before { background: linear-gradient(0deg, rgba(15,13,11,0.95) 0%, rgba(15,13,11,0.55) 55%, rgba(15,13,11,0.35) 100%); }
+    .hero__content { align-items: flex-end; padding-bottom: 120px; }
+    .hero__media video, .hero__media img { object-position: 72% 50%; }
+    .hero .caption { display: none; }
+    .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .stat { padding-bottom: 24px; }
+    .stat:nth-child(2) { border-right: 0; }
+    .cart-btn__label { display: none; }
+    /* Two-line icon instead of the word "Menu" so the header fits */
+    .menu-toggle { width: 24px; height: 11px; font-size: 0; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; }
+    .products { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 80%; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter); margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter) 16px; scrollbar-width: none; }
+    .products::-webkit-scrollbar { display: none; }
+    .product { scroll-snap-align: start; }
+    .specs { grid-template-columns: minmax(0, 1fr); }
+    .specs li:nth-child(odd) { padding-right: 0; }
+    .feature .add { width: 100%; }
+    .line { grid-template-columns: 64px minmax(0, 1fr) auto; gap: 12px; }
+    .line img { width: 64px; }
+    .cart__head, .cart__foot { padding-left: 22px; padding-right: 22px; }
+    .cart__items { padding: 8px 22px; }
+    .omotenashi__card { grid-column: 1 / -1; grid-template-columns: minmax(0, 1fr); margin-top: -40px; }
+    .omotenashi__card img { aspect-ratio: 16 / 10; }
+    .footer__grid { grid-template-columns: minmax(0, 1fr); }
+    .btn { padding: 15px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Noren curtain: parts on load -->
+<div class="noren" aria-hidden="true">
+  <div class="noren__panel"></div>
+  <div class="noren__panel"></div>
+  <div class="noren__crest"><span class="hanko">和牛</span><span>WAGYU MEAT</span></div>
+</div>
+
+<header class="header" id="top">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Wagyu Meat">
+      <span class="hanko">和牛</span>
+      <span class="brand__name">WAGYU MEAT</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#craft"><span data-i18n="nav.craft">The Craft</span><small>匠</small></a>
+      <a href="#counter"><span data-i18n="nav.counter">The Counter</span><small>板場</small></a>
+      <a href="#collection"><span data-i18n="nav.menu">Collection</span><small>逸品</small></a>
+      <a href="#omotenashi"><span data-i18n="nav.omotenashi">Omotenashi</span><small>おもてなし</small></a>
+    </nav>
+    <div class="header__aside">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="ja" aria-pressed="false" lang="ja">日本語</button>
+      </div>
+      <button type="button" class="cart-btn" data-cart-open aria-label="Open cart" aria-controls="cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+        <span class="cart-btn__label" data-i18n="nav.cart">Cart</span><span class="cart-count" data-cart-count>0</span>
+      </button>
+      <a href="#closing" class="btn btn--ghost" data-i18n="nav.concierge">Concierge</a>
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="drawer" data-i18n="nav.open">Menu</button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+  <button type="button" class="drawer__close" data-i18n="nav.close">Close</button>
+  <a href="#craft"><span data-i18n="nav.craft">The Craft</span><small>匠</small></a>
+  <a href="#counter"><span data-i18n="nav.counter">The Counter</span><small>板場</small></a>
+  <a href="#collection"><span data-i18n="nav.menu">Collection</span><small>逸品</small></a>
+  <a href="#omotenashi"><span data-i18n="nav.omotenashi">Omotenashi</span><small>おもてなし</small></a>
+  <a href="#closing"><span data-i18n="nav.concierge">Concierge</span><small>ご相談</small></a>
+</div>
+
+<main>
+  <!-- 1. Hero: the kitchen at dusk -->
+  <section class="hero" aria-label="Introduction">
+    <div class="hero__media" data-parallax="0.25">
+      <video autoplay muted loop playsinline preload="auto" poster="assets/kitchen.webp">
+        <source src="assets/hero.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero__content">
+      <div class="wrap">
+        <div class="hero__inner">
+          <p class="label hero__eyebrow reveal" data-i18n="hero.eyebrow">Halal Japanese A5 &amp; Australian wagyu · Pakistan</p>
+          <h1 class="display reveal" data-delay="1" data-i18n="hero.title">The quiet<br><em>art of wagyu.</em></h1>
+          <p class="hero__lede reveal" data-delay="2" data-i18n="hero.lede">Graded A5 from Kagoshima, Miyazaki and Hokkaido, prepared with the patience of a Kyoto kitchen and brought, frozen at its peak, to your table.</p>
+          <div class="hero__ctas reveal" data-delay="3">
+            <a href="#prologue" class="btn btn--solid"><span data-i18n="hero.cta">Enter the kitchen</span><span class="arrow"></span></a>
+            <a href="#collection" class="link" data-i18n="hero.link">View the collection</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero__ichigo tategaki" aria-hidden="true">
+      一期一会
+      <span class="seal">和</span>
+      <small>Ichi-go ichi-e</small>
+    </div>
+    <div class="hero__foot">
+      <div class="wrap">
+        <p class="caption" data-i18n="hero.caption">Kagoshima A5 striploin · BMS 12</p>
+        <a href="#prologue" class="scroll"><span data-i18n="hero.scroll">Scroll</span><span class="scroll__line"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Prologue: on washi, with an enso -->
+  <section class="prologue washi" id="prologue">
+    <div class="wrap prologue__grid">
+      <div class="prologue__enso feather reveal">
+        <img src="assets/enso.webp" alt="" loading="lazy">
+        <span aria-hidden="true">序</span>
+      </div>
+      <div>
+        <p class="label reveal" data-i18n="prologue.label">Prologue</p>
+        <p class="prologue__text reveal" data-delay="1" data-i18n="prologue.text">In Japan, wagyu is not a product. It is <em>thirty months of patience</em>, a family’s name and a single season, kept for one evening at your table.</p>
+        <p class="prologue__body reveal" data-delay="2" data-i18n="prologue.body">We bring that tradition to Pakistan with nothing lost on the way: halal from farm to box, graded and traceable, and kept cold from Japan to your door.</p>
+        <p class="signature reveal" data-delay="3"><span class="hanko">和牛</span><span data-i18n="prologue.sign">The house of Wagyu Meat</span></p>
+      </div>
+      <p class="prologue__vertical tategaki reveal" data-delay="2" lang="ja">和牛とは、時間を味わうこと。</p>
+    </div>
+  </section>
+
+  <!-- 3. The craft: three chapters -->
+  <section class="craft" id="craft">
+    <div class="wrap">
+      <div class="craft__head">
+        <div>
+          <p class="label reveal"><span class="kanji">匠</span><span data-i18n="craft.label">The Craft</span></p>
+          <h2 class="display reveal" data-delay="1" data-i18n="craft.title">Three disciplines, <em>one cut.</em></h2>
+        </div>
+        <p class="reveal" data-delay="2" data-i18n="craft.lede">Before a single slice reaches you, three crafts have already done their quiet work.</p>
+      </div>
+
+      <article class="chapter">
+        <figure class="chapter__media zoom" style="margin:0">
+          <img src="assets/farm.webp" alt="Misty hills of Kagoshima at dawn with black wagyu cattle grazing" loading="lazy">
+          <span class="chapter__frame"></span>
+        </figure>
+        <div class="chapter__text">
+          <p class="chapter__kicker reveal"><b>一</b><span data-i18n="ch1.kicker">Origin · 産地</span></p>
+          <h3 class="display reveal" data-delay="1" data-i18n="ch1.title">Raised slowly, in the mist.</h3>
+          <p class="reveal" data-delay="2" data-i18n="ch1.body">Kuroge cattle graze the hills of Kagoshima, Miyazaki and Hokkaido for more than thirty months. Calm animals, clean water, a patient diet: marbling cannot be hurried.</p>
+          <p class="chapter__meta reveal" data-delay="3">Kagoshima · Miyazaki · Hokkaido</p>
+        </div>
+      </article>
+
+      <article class="chapter chapter--flip">
+        <figure class="chapter__media zoom" style="margin:0">
+          <img src="assets/knife.webp" alt="A yanagiba knife beside a thick slice of A5 wagyu on slate" loading="lazy">
+          <span class="chapter__frame"></span>
+        </figure>
+        <div class="chapter__text">
+          <p class="chapter__kicker reveal"><b>二</b><span data-i18n="ch2.kicker">Grade · 格付</span></p>
+          <h3 class="display reveal" data-delay="1" data-i18n="ch2.title">Graded, never guessed.</h3>
+          <p class="reveal" data-delay="2" data-i18n="ch2.body">Every A5 is graded by the Japan Meat Grading Association and carries a ten-digit cattle ID. Its certificate travels with it, so you can trace the farm yourself.</p>
+          <p class="chapter__meta reveal" data-delay="3">A5 · BMS 9–12 · JMGA</p>
+        </div>
+      </article>
+
+      <article class="chapter">
+        <figure class="chapter__media chapter__media--tall zoom" style="margin:0; grid-column: 2 / span 5">
+          <img src="assets/chef.webp" alt="A chef slicing A5 wagyu with a yanagiba on a hinoki board" loading="lazy">
+          <span class="chapter__frame"></span>
+        </figure>
+        <div class="chapter__text">
+          <p class="chapter__kicker reveal"><b>三</b><span data-i18n="ch3.kicker">The cut · 包丁</span></p>
+          <h3 class="display reveal" data-delay="1" data-i18n="ch3.title">Cut by hand, for your table.</h3>
+          <p class="reveal" data-delay="2" data-i18n="ch3.body">With a single-bevel yanagiba, each block is portioned into steaks, yakiniku and shabu-shabu slices, then vacuum-sealed and frozen at its peak.</p>
+          <p class="chapter__meta reveal" data-delay="3" data-i18n="ch3.meta">Halal · Vacuum-sealed · −18 °C</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4. The counter: binchotan video -->
+  <section class="counter" id="counter">
+    <div class="counter__media">
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/binchotan.webp">
+        <source src="assets/counter.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="counter__content">
+      <div class="wrap">
+        <p class="label reveal"><span class="kanji">板場</span><span data-i18n="counter.label">The Counter</span></p>
+        <h2 class="display reveal" data-delay="1" data-i18n="counter.title">Over binchotan,<br><em>fat becomes perfume.</em></h2>
+        <p class="counter__lede reveal" data-delay="2" data-i18n="counter.lede">A5 wagyu begins to melt at the warmth of your hand. Two minutes over white charcoal is all it asks.</p>
+        <div class="stats">
+          <div class="stat reveal"><b>12</b><span data-i18n="stat.bms">BMS · the highest marbling</span></div>
+          <div class="stat reveal" data-delay="1"><b>30<small style="font-size:.5em">+</small></b><span data-i18n="stat.months">Months, raised slowly</span></div>
+          <div class="stat reveal" data-delay="2"><b>−18°</b><span data-i18n="stat.frozen">Frozen at its peak</span></div>
+          <div class="stat reveal" data-delay="3"><b>100%</b><span data-i18n="stat.halal">Halal certified</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. The collection: each cut photographed with its certificate -->
+  <section class="collection washi" id="collection">
+    <div class="wrap">
+      <div class="collection__head">
+        <div>
+          <p class="label reveal"><span class="kanji">逸品</span><span data-i18n="col.label">The Collection</span></p>
+          <h2 class="display reveal" data-delay="1" data-i18n="col.title">Every cut arrives <em>with its papers.</em></h2>
+        </div>
+        <p class="collection__lede reveal" data-delay="2" data-i18n="col.lede">Each A5 piece is sealed with its certificate of authenticity and ten-digit cattle ID, as it would be sold in Japan. Choose your cut; we deliver it frozen.</p>
+      </div>
+
+      <article class="feature" data-product="ribeye">
+        <figure class="feature__media zoom" style="margin:0">
+          <img src="assets/p-ribeye.webp" alt="A5 Kagoshima ribeye steak beside its certificate of authenticity">
+          <span class="seal-tag" aria-hidden="true"><span>BMS<br>11</span></span>
+        </figure>
+        <div>
+          <p class="feature__kicker reveal"><b>一</b><span data-i18n="feat.kicker">Signature cut</span></p>
+          <h3 class="display reveal" data-delay="1" data-name></h3>
+          <p class="feature__sub reveal" data-delay="1" lang="ja">鹿児島黒牛 · リブロース</p>
+          <p class="feature__desc reveal" data-delay="2" data-i18n="feat.desc">The richest of the steaks: a deep eye of marbling ringed by the prized cap. Cut by hand and sealed with its certificate and cattle ID.</p>
+          <ul class="specs reveal" data-delay="2">
+            <li><span data-i18n="spec.pref">Prefecture</span><b data-i18n="spec.prefV">Kagoshima</b></li>
+            <li><span data-i18n="spec.grade">Grade</span><b>A5 · BMS 11</b></li>
+            <li><span data-i18n="spec.cert">Certificate</span><b data-i18n="spec.certV">Included, with cattle ID</b></li>
+            <li><span data-i18n="spec.halal">Halal</span><b data-i18n="spec.halalV">Certified</b></li>
+          </ul>
+          <div class="reveal" data-delay="3">
+            <div class="weights" role="group" data-weights></div>
+            <div class="buy">
+              <span class="price" data-price></span>
+              <span class="qty">
+                <button type="button" data-qty="-1" aria-label="Decrease quantity">−</button>
+                <output data-qty-value>1</output>
+                <button type="button" data-qty="1" aria-label="Increase quantity">+</button>
+              </span>
+              <button type="button" class="add" data-add><span data-i18n="add">Add to cart</span><span class="arrow"></span><span class="tick">✓</span></button>
+            </div>
+            <p class="reassure"><span data-i18n="re.halal">Halal certified</span><span data-i18n="re.frozen">Delivered frozen</span><span data-i18n="re.free">Free delivery over Rs 25,000</span></p>
+          </div>
+        </div>
+      </article>
+
+      <div class="products" data-products></div>
+
+      <div class="collection__foot">
+        <span data-i18n="col.note">Prices in PKR. Delivered frozen to Karachi, Lahore and Islamabad.</span>
+        <a href="#collection" class="link" data-i18n="col.all">View the full collection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Ritual -->
+  <section class="ritual" id="ritual">
+    <div class="wrap ritual__grid">
+      <figure class="ritual__media zoom" style="margin:0">
+        <img src="assets/tataki.webp" alt="Seared A5 wagyu tataki on a handmade ceramic plate with wasabi and shiso" loading="lazy">
+        <figcaption class="caption" data-i18n="ritual.caption">A5 tataki, sea salt, fresh wasabi</figcaption>
+      </figure>
+      <div>
+        <p class="label reveal"><span class="kanji">作法</span><span data-i18n="ritual.label">The Ritual</span></p>
+        <h2 class="display reveal" data-delay="1" data-i18n="ritual.title">Three gestures <em>at the table.</em></h2>
+        <ol class="steps">
+          <li class="step reveal"><span class="step__n">壱</span><div><h3><span data-i18n="r1.t">Thaw</span><small>解凍</small></h3><p data-i18n="r1.b">The night before, move it from freezer to fridge. Patience, once again.</p></div></li>
+          <li class="step reveal" data-delay="1"><span class="step__n">弐</span><div><h3><span data-i18n="r2.t">Sear</span><small>焼く</small></h3><p data-i18n="r2.b">A very hot pan or binchotan. Salt at the last moment. Two minutes a side.</p></div></li>
+          <li class="step reveal" data-delay="2"><span class="step__n">参</span><div><h3><span data-i18n="r3.t">Rest</span><small>休ませる</small></h3><p data-i18n="r3.b">Five minutes of rest, then slice against the grain. Serve small, savour slowly.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Omotenashi: gifting -->
+  <section class="omotenashi" id="omotenashi">
+    <p class="omotenashi__vertical tategaki" aria-hidden="true">心を込めて、おもてなし。</p>
+    <div class="wrap omotenashi__grid">
+      <div class="omotenashi__video zoom">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/ryotei.webp">
+          <source src="assets/omotenashi.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="omotenashi__card washi reveal">
+        <img src="assets/jubako.webp" alt="A5 wagyu fanned in a black lacquer box beside an indigo furoshiki" loading="lazy">
+        <div>
+          <p class="label" data-i18n="omo.label">Omotenashi · 贈り物</p>
+          <h2 class="display" data-i18n="omo.title">A gift, wrapped in lacquer and indigo.</h2>
+          <p data-i18n="omo.body">For Eid, weddings and the people who matter most: wagyu presented in a lacquered box, wrapped in furoshiki, with a note in your own words. Prices hidden on request.</p>
+          <a href="#closing" class="btn btn--ink"><span data-i18n="omo.cta">Arrange a gift</span><span class="arrow"></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. A saying, with sumi-e -->
+  <section class="saying washi">
+    <div class="wrap saying__grid">
+      <div class="saying__art feather reveal">
+        <img src="assets/sumie-bull.webp" alt="Sumi-e ink painting of a black wagyu bull" loading="lazy">
+      </div>
+      <div>
+        <blockquote>
+          <p class="saying__ja reveal" lang="ja">「良い肉は、<br>語らずとも伝わる。」</p>
+          <p class="saying__en reveal" data-delay="1">Good meat needs no words.</p>
+        </blockquote>
+        <cite class="reveal" data-delay="2" data-i18n="saying.cite">The house of Wagyu Meat</cite>
+        <p class="saying__body reveal" data-delay="3" data-i18n="saying.body">So we keep ours short. A grade you can check, a farm you can trace, a halal certificate for every shipment, and beef that arrives exactly as cold as it left.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Closing over a gold byobu -->
+  <section class="closing" id="closing">
+    <div class="closing__art zoom">
+      <img src="assets/byobu.webp" alt="" loading="lazy">
+    </div>
+    <div class="closing__content">
+      <div class="wrap">
+        <div class="closing__inner">
+          <p class="label reveal"><span class="kanji">ご予約</span><span data-i18n="close.label">Concierge</span></p>
+          <h2 class="display reveal" data-delay="1" data-i18n="close.title">Your table<br><em>awaits.</em></h2>
+          <p class="reveal" data-delay="2" data-i18n="close.body">Our concierge will help you choose the cut, the day and the hour. Delivered frozen to Karachi, Lahore and Islamabad.</p>
+          <div class="closing__ctas reveal" data-delay="3">
+            <a href="#" class="btn btn--solid"><span data-i18n="close.cta">Speak with our concierge</span><span class="arrow"></span></a>
+            <a href="#collection" class="link" data-i18n="close.link">Explore the collection</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a href="#top" class="brand"><span class="hanko">和牛</span><span class="brand__name">WAGYU MEAT</span></a>
+        <p class="footer__tag" data-i18n="footer.tag">Halal Japanese A5 and Australian wagyu for Pakistan. Graded, traceable and delivered frozen.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.house">The House</h4>
+        <ul><li><a href="#prologue" data-i18n="footer.story">Our story</a></li><li><a href="#craft" data-i18n="footer.halal">Halal &amp; provenance</a></li><li><a href="#ritual" data-i18n="footer.journal">Journal</a></li></ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.care">Care</h4>
+        <ul><li><a href="#" data-i18n="footer.delivery">Delivery</a></li><li><a href="#" data-i18n="footer.track">Track an order</a></li><li><a href="#" data-i18n="footer.faq">Questions</a></li></ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.visit">Visit</h4>
+        <ul><li><a href="#closing" data-i18n="footer.concierge">Concierge on WhatsApp</a></li><li data-i18n="footer.cities">Karachi · Lahore · Islamabad</li></ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Wagyu Meat</span>
+      <span data-i18n="footer.marks">Halal certified · Graded · Traceable</span>
+    </div>
+  </div>
+  <span class="footer__watermark" aria-hidden="true">和牛</span>
+</footer>
+
+<div class="cart-scrim" data-cart-close></div>
+<aside class="cart washi" id="cart" aria-label="Your order" aria-hidden="true">
+  <div class="cart__head">
+    <h2><span data-i18n="cart.title">Your order</span><small>ご注文</small></h2>
+    <button type="button" class="cart__close" data-cart-close data-i18n="nav.close">Close</button>
+  </div>
+  <ul class="cart__items" data-cart-items></ul>
+  <div class="cart__foot">
+    <div class="cart__row"><span data-i18n="cart.subtotal">Subtotal</span><b data-cart-subtotal>Rs 0</b></div>
+    <p class="cart__note" data-cart-note></p>
+    <a href="#" class="add"><span data-i18n="cart.checkout">Proceed to checkout</span><span class="arrow"></span></a>
+    <button type="button" class="link" data-cart-close data-i18n="cart.continue">Continue browsing</button>
+  </div>
+</aside>
+
+<script>
+  // Japanese copy for every [data-i18n] element; English is the markup itself.
+  const JA = {
+    "nav.craft": "匠", "nav.counter": "板場", "nav.menu": "逸品", "nav.cart": "カート", "nav.omotenashi": "おもてなし",
+    "nav.concierge": "ご相談", "nav.open": "メニュー", "nav.close": "閉じる",
+    "hero.eyebrow": "ハラール 日本産A5・オーストラリア産和牛 · パキスタン",
+    "hero.title": "和牛という、<br><em>静かな芸術。</em>",
+    "hero.lede": "鹿児島・宮崎・北海道のA5和牛を、京都の板場のような丁寧さで仕立て、最良の状態で凍らせ、あなたの食卓へ。",
+    "hero.cta": "板場へ", "hero.link": "逸品を見る", "hero.caption": "鹿児島黒牛 A5サーロイン · BMS 12", "hero.scroll": "下へ",
+    "prologue.label": "序",
+    "prologue.text": "日本において和牛は、ただの商品ではありません。<em>三十か月の辛抱</em>と、育てた家の名と、ひとつの季節。それを、ひと晩の食卓のために。",
+    "prologue.body": "その伝統を、何ひとつ損なうことなくパキスタンへ。牧場から箱までハラール、格付けと個体識別、そして日本からご自宅まで途切れない冷たさで。",
+    "prologue.sign": "Wagyu Meat",
+    "craft.label": "匠の技", "craft.title": "三つの技を、<em>ひと切れに。</em>",
+    "craft.lede": "一枚があなたに届くまでに、三つの技が静かに仕事を終えています。",
+    "ch1.kicker": "産地", "ch1.title": "霧の中で、ゆっくりと。",
+    "ch1.body": "鹿児島・宮崎・北海道の丘で、黒毛和種は三十か月以上をかけて育ちます。穏やかな環境、清らかな水、根気強い飼育。サシは急いでは生まれません。",
+    "ch2.kicker": "格付", "ch2.title": "推測ではなく、格付け。",
+    "ch2.body": "すべてのA5は日本食肉格付協会により格付けされ、10桁の個体識別番号を持ちます。証明書が添えられ、牧場までご自身でたどれます。",
+    "ch3.kicker": "包丁", "ch3.title": "手で切る、あなたの食卓のために。",
+    "ch3.body": "片刃の柳刃で、ステーキ、焼肉、しゃぶしゃぶ用に一枚ずつ切り分け、真空包装して最良の状態で凍らせます。",
+    "ch3.meta": "ハラール · 真空包装 · −18 °C",
+    "counter.label": "板場", "counter.title": "備長炭の上で、<br><em>脂は香りになる。</em>",
+    "counter.lede": "A5和牛の脂は、手のひらの温もりで溶けはじめます。白炭の上で二分。それだけで十分です。",
+    "stat.bms": "最高位の脂肪交雑", "stat.months": "か月、ゆっくりと肥育", "stat.frozen": "最良の状態で冷凍", "stat.halal": "ハラール認証",
+    "col.label": "逸品", "col.title": "すべての品に、<em>証明書を添えて。</em>",
+    "col.lede": "A5の一枚一枚に、和牛証明書と10桁の個体識別番号を添えて。日本で売られるのと同じかたちで、冷凍のままお届けします。",
+    "feat.kicker": "看板の一品",
+    "feat.desc": "最も濃厚なステーキ。サシの詰まった芯を、希少なリブキャップが包みます。手で切り分け、証明書と個体識別番号を添えて真空包装しています。",
+    "spec.pref": "産地", "spec.prefV": "鹿児島県", "spec.grade": "等級", "spec.cert": "証明書", "spec.certV": "個体識別番号付き",
+    "spec.halal": "ハラール", "spec.halalV": "認証済み", "add": "カートに入れる",
+    "re.halal": "ハラール認証", "re.frozen": "冷凍でお届け", "re.free": "Rs 25,000以上で配送無料",
+    "col.note": "価格はパキスタン・ルピー表示。カラチ・ラホール・イスラマバードへ冷凍でお届けします。", "col.all": "すべての品を見る",
+    "cart.title": "ご注文", "cart.subtotal": "小計", "cart.checkout": "ご注文手続きへ", "cart.continue": "買い物を続ける",
+    "ritual.caption": "A5 たたき · 海塩 · 生わさび", "ritual.label": "作法", "ritual.title": "食卓での、<em>三つの所作。</em>",
+    "r1.t": "解凍する", "r1.b": "前の晩、冷凍庫から冷蔵庫へ。ここでも、待つことが大切です。",
+    "r2.t": "焼く", "r2.b": "よく熱した鉄板か備長炭で。塩は焼く直前に。片面二分。",
+    "r3.t": "休ませる", "r3.b": "五分休ませ、繊維を断つように切る。少しずつ、ゆっくりと味わってください。",
+    "omo.label": "おもてなし · 贈り物", "omo.title": "漆と藍に包む、贈り物。",
+    "omo.body": "イードや結婚のお祝い、大切な方へ。漆の箱に収め、風呂敷で包み、あなたの言葉を添えて。金額の記載は省くこともできます。",
+    "omo.cta": "贈り物を相談する",
+    "saying.cite": "Wagyu Meat",
+    "saying.body": "だから私たちの言葉も短く。確かめられる等級、たどれる牧場、出荷ごとのハラール証明書。そして、出たときと同じ冷たさで届く牛肉。",
+    "close.label": "ご相談", "close.title": "食卓で、<br><em>お待ちしております。</em>",
+    "close.body": "部位も、日にちも、時間も。コンシェルジュがご案内いたします。カラチ・ラホール・イスラマバードへ冷凍でお届けします。",
+    "close.cta": "コンシェルジュに相談する", "close.link": "すべての品を見る",
+    "footer.tag": "パキスタンのための、ハラール認証の日本産A5・オーストラリア産和牛。格付け、トレーサビリティ、冷凍配送。",
+    "footer.house": "Wagyu Meat", "footer.story": "私たちについて", "footer.halal": "ハラールと産地", "footer.journal": "読みもの",
+    "footer.care": "サポート", "footer.delivery": "配送について", "footer.track": "注文状況", "footer.faq": "よくある質問",
+    "footer.visit": "お問い合わせ", "footer.concierge": "WhatsAppでコンシェルジュへ", "footer.cities": "カラチ · ラホール · イスラマバード",
+    "footer.marks": "ハラール認証 · 格付け · トレーサビリティ"
+  };
+
+  // ---------- Shop: product data mirrors the seeded catalogue ----------
+  const PRODUCTS = {
+    ribeye: {
+      img: "assets/p-ribeye.webp", ja: "鹿児島黒牛 リブロース",
+      name: { en: "Kagoshima A5 Ribeye", ja: "鹿児島黒牛 A5 リブロース" },
+      meta: { en: "Kagoshima · BMS 11", ja: "鹿児島県 · BMS 11" }, certs: 1,
+      variants: [{ en: "200 g steak", ja: "200g", price: 22000 }, { en: "300 g steak", ja: "300g", price: 32500 }],
+    },
+    striploin: {
+      img: "assets/p-striploin.webp", ja: "宮崎牛 サーロイン",
+      name: { en: "Miyazaki A5 Striploin", ja: "宮崎牛 A5 サーロイン" },
+      meta: { en: "Miyazaki · BMS 10", ja: "宮崎県 · BMS 10" }, certs: 1,
+      variants: [{ en: "200 g", ja: "200g", price: 19500 }, { en: "300 g", ja: "300g", price: 28500 }],
+    },
+    tenderloin: {
+      img: "assets/p-tenderloin.webp", ja: "鹿児島 ヒレ",
+      name: { en: "A5 Tenderloin Filet", ja: "A5 和牛 ヒレ" },
+      meta: { en: "Kagoshima · BMS 10", ja: "鹿児島県 · BMS 10" }, certs: 1,
+      variants: [{ en: "1 × 150 g", ja: "150g × 1", price: 21000 }, { en: "2 × 150 g", ja: "150g × 2", price: 40000 }],
+    },
+    shabu: {
+      img: "assets/p-shabu.webp", ja: "北海道 しゃぶしゃぶ",
+      name: { en: "A5 Shabu-shabu", ja: "A5 和牛 しゃぶしゃぶ用" },
+      meta: { en: "Hokkaido · BMS 9", ja: "北海道 · BMS 9" }, certs: 1,
+      variants: [{ en: "100 g", ja: "100g", price: 7200 }, { en: "250 g", ja: "250g", price: 16800 }],
+    },
+    flight: {
+      img: "assets/p-flight.webp", ja: "三県 食べ比べ",
+      name: { en: "Prefecture Tasting Flight", ja: "A5 産地食べ比べセット" },
+      meta: { en: "Three prefectures · BMS 10", ja: "三県 · BMS 10" }, certs: 3,
+      variants: [{ en: "3 × 150 g", ja: "150g × 3", price: 52000, compareAt: 58000 }],
+    },
+  };
+  const GRID = ["striploin", "tenderloin", "shabu", "flight"];
+  const FREE_DELIVERY = 25000;
+  const UI = {
+    en: {
+      add: "Add to cart", added: "Added", cert: "Certificate included", certs: "3 certificates included",
+      empty: "Your table is still empty.", remove: "Remove",
+      more: (n) => `Add ${n} more for free cold-chain delivery.`, free: "Free cold-chain delivery included.",
+      dec: "Decrease quantity", inc: "Increase quantity",
+    },
+    ja: {
+      add: "カートに入れる", added: "追加しました", cert: "証明書付き", certs: "証明書3枚付き",
+      empty: "まだ何も選ばれていません。", remove: "削除",
+      more: (n) => `あと${n}で冷凍配送が無料になります。`, free: "冷凍配送料は無料です。",
+      dec: "数量を減らす", inc: "数量を増やす",
+    },
+  };
+  const lang = () => (document.documentElement.lang === "ja" ? "ja" : "en");
+  const pkr = (n) => "Rs " + n.toLocaleString("en-PK");
+  const selected = Object.fromEntries(Object.keys(PRODUCTS).map((id) => [id, 0]));
+  let featureQty = 1;
+
+  let cart = [];
+  try { cart = JSON.parse(localStorage.getItem("wm-mockup-cart") || "[]"); } catch {}
+  const saveCart = () => { try { localStorage.setItem("wm-mockup-cart", JSON.stringify(cart)); } catch {} };
+
+  function weightButtons(id) {
+    const p = PRODUCTS[id];
+    return p.variants.map((v, i) =>
+      `<button type="button" class="weight" data-weight="${i}" aria-pressed="${i === selected[id]}">${v[lang()]}</button>`).join("");
+  }
+  function priceHTML(id, qty = 1) {
+    const v = PRODUCTS[id].variants[selected[id]];
+    return pkr(v.price * qty) + (v.compareAt ? `<s>${pkr(v.compareAt * qty)}</s>` : "");
+  }
+  function addButton() {
+    return `<button type="button" class="add" data-add><span>${UI[lang()].add}</span><span class="arrow"></span><span class="tick">✓</span></button>`;
+  }
+
+  function renderShop() {
+    const t = UI[lang()];
+    // Featured product
+    const feature = document.querySelector(".feature");
+    feature.querySelector("[data-name]").textContent = PRODUCTS.ribeye.name[lang()];
+    feature.querySelector("[data-weights]").innerHTML = weightButtons("ribeye");
+    feature.querySelector("[data-price]").innerHTML = priceHTML("ribeye", featureQty);
+    feature.querySelector("[data-qty-value]").textContent = featureQty;
+    feature.querySelector('[data-qty="-1"]').setAttribute("aria-label", t.dec);
+    feature.querySelector('[data-qty="1"]').setAttribute("aria-label", t.inc);
+    // Grid
+    document.querySelector("[data-products]").innerHTML = GRID.map((id, i) => {
+      const p = PRODUCTS[id];
+      return `<article class="product reveal is-in" data-product="${id}" data-delay="${i}">
+        <figure class="product__media" style="margin:0">
+          <img src="${p.img}" alt="${p.name.en} with its certificate of authenticity" loading="lazy">
+          <span class="product__ja tategaki" lang="ja">${p.ja}</span>
+          <span class="product__cert">${p.certs > 1 ? t.certs : t.cert}</span>
+        </figure>
+        <p class="product__meta">${p.meta[lang()]}</p>
+        <h3>${p.name[lang()]}</h3>
+        <div class="weights" role="group">${weightButtons(id)}</div>
+        <span class="product__spacer"></span>
+        <div class="product__foot"><span class="price" data-price>${priceHTML(id)}</span>${addButton()}</div>
+      </article>`;
+    }).join("");
+    renderCart();
+  }
+
+  function renderCart() {
+    const t = UI[lang()];
+    const list = document.querySelector("[data-cart-items]");
+    const count = cart.reduce((s, l) => s + l.qty, 0);
+    const subtotal = cart.reduce((s, l) => s + PRODUCTS[l.id].variants[l.v].price * l.qty, 0);
+    list.innerHTML = cart.length
+      ? cart.map((l, i) => {
+          const p = PRODUCTS[l.id];
+          const v = p.variants[l.v];
+          return `<li class="line">
+            <img src="${p.img}" alt="">
+            <div><h3>${p.name[lang()]}</h3><p>${v[lang()]} · ${p.certs > 1 ? t.certs : t.cert}</p>
+              <span class="qty"><button type="button" data-line="${i}" data-step="-1" aria-label="${t.dec}">−</button><output>${l.qty}</output><button type="button" data-line="${i}" data-step="1" aria-label="${t.inc}">+</button></span></div>
+            <div><span class="line__price">${pkr(v.price * l.qty)}</span><button type="button" class="line__remove" data-remove="${i}">${t.remove}</button></div>
+          </li>`;
+        }).join("")
+      : `<li class="cart__empty">${t.empty}</li>`;
+    document.querySelector("[data-cart-subtotal]").textContent = pkr(subtotal);
+    const note = document.querySelector("[data-cart-note]");
+    const free = subtotal >= FREE_DELIVERY;
+    note.textContent = subtotal === 0 ? "" : free ? t.free : t.more(pkr(FREE_DELIVERY - subtotal));
+    note.classList.toggle("is-free", free);
+    document.querySelectorAll("[data-cart-count]").forEach((el) => { el.textContent = count; });
+  }
+
+  function addToCart(id, qty, button) {
+    const v = selected[id];
+    const line = cart.find((l) => l.id === id && l.v === v);
+    if (line) line.qty += qty; else cart.push({ id, v, qty });
+    saveCart();
+    renderCart();
+    document.querySelectorAll("[data-cart-count]").forEach((el) => { el.classList.remove("is-bump"); void el.offsetWidth; el.classList.add("is-bump"); });
+    button.classList.add("is-added");
+    button.querySelector("span").textContent = UI[lang()].added;
+    setTimeout(() => { button.classList.remove("is-added"); button.querySelector("span").textContent = UI[lang()].add; openCart(); }, 650);
+  }
+
+  function openCart() { document.body.classList.add("cart-open"); document.getElementById("cart").setAttribute("aria-hidden", "false"); }
+  function closeCart() { document.body.classList.remove("cart-open"); document.getElementById("cart").setAttribute("aria-hidden", "true"); }
+
+  document.addEventListener("click", (e) => {
+    const product = e.target.closest("[data-product]");
+    const weight = e.target.closest("[data-weight]");
+    if (weight && product) {
+      const id = product.dataset.product;
+      selected[id] = Number(weight.dataset.weight);
+      product.querySelectorAll("[data-weight]").forEach((b) => b.setAttribute("aria-pressed", String(b === weight)));
+      product.querySelector("[data-price]").innerHTML = priceHTML(id, id === "ribeye" ? featureQty : 1);
+      return;
+    }
+    const qtyBtn = e.target.closest("[data-qty]");
+    if (qtyBtn) {
+      featureQty = Math.min(9, Math.max(1, featureQty + Number(qtyBtn.dataset.qty)));
+      document.querySelector("[data-qty-value]").textContent = featureQty;
+      document.querySelector(".feature [data-price]").innerHTML = priceHTML("ribeye", featureQty);
+      return;
+    }
+    const add = e.target.closest("[data-add]");
+    if (add && product) { addToCart(product.dataset.product, product.dataset.product === "ribeye" ? featureQty : 1, add); return; }
+    const step = e.target.closest("[data-step]");
+    if (step) {
+      const line = cart[Number(step.dataset.line)];
+      line.qty += Number(step.dataset.step);
+      if (line.qty < 1) cart.splice(Number(step.dataset.line), 1);
+      saveCart(); renderCart(); return;
+    }
+    const remove = e.target.closest("[data-remove]");
+    if (remove) { cart.splice(Number(remove.dataset.remove), 1); saveCart(); renderCart(); return; }
+    if (e.target.closest("[data-cart-open]")) { openCart(); return; }
+    if (e.target.closest("[data-cart-close]")) closeCart();
+  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeCart(); });
+  renderShop();
+
+  const EN = {};
+  document.querySelectorAll("[data-i18n]").forEach((el) => { EN[el.dataset.i18n] ??= el.innerHTML; });
+
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    const dict = lang === "ja" ? JA : EN;
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const value = dict[el.dataset.i18n];
+      if (value !== undefined) el.innerHTML = value;
+    });
+    document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+    renderShop();
+    try { localStorage.setItem("wm-mockup-lang", lang); } catch {}
+  }
+  document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => setLang(b.dataset.lang)));
+  try { if (localStorage.getItem("wm-mockup-lang") === "ja") setLang("ja"); } catch {}
+
+  // Noren parts once the hero poster is ready.
+  window.addEventListener("load", () => setTimeout(() => document.body.classList.add("is-open"), 350));
+  setTimeout(() => document.body.classList.add("is-open"), 2500);
+
+  // Header turns solid after the hero starts to scroll away.
+  const header = document.querySelector(".header");
+  const parallax = document.querySelector("[data-parallax]");
+  let ticking = false;
+  function onScroll() {
+    const y = window.scrollY;
+    header.classList.toggle("is-solid", y > 60);
+    if (parallax && y < window.innerHeight * 1.2) parallax.style.transform = `translate3d(0, ${y * Number(parallax.dataset.parallax)}px, 0)`;
+    ticking = false;
+  }
+  window.addEventListener("scroll", () => { if (!ticking) { requestAnimationFrame(onScroll); ticking = true; } }, { passive: true });
+  onScroll();
+
+  // Reveal on scroll.
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+  document.querySelectorAll(".reveal, .zoom").forEach((el) => io.observe(el));
+
+  // Only play background videos while they are on screen.
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const vio = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      const v = e.target;
+      if (reduce) { v.pause(); return; }
+      if (e.isIntersecting) v.play().catch(() => {}); else v.pause();
+    });
+  }, { threshold: 0.05 });
+  document.querySelectorAll("video").forEach((v) => vio.observe(v));
+
+  // Mobile drawer.
+  const drawer = document.getElementById("drawer");
+  const toggle = document.querySelector(".menu-toggle");
+  const closeDrawer = () => { drawer.classList.remove("is-open"); toggle.setAttribute("aria-expanded", "false"); };
+  toggle.addEventListener("click", () => { drawer.classList.add("is-open"); toggle.setAttribute("aria-expanded", "true"); });
+  drawer.querySelector(".drawer__close").addEventListener("click", closeDrawer);
+  drawer.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeDrawer));
+</script>
+</body>
+</html>

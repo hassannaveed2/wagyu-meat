@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "port": 3000
+    },
+    {
+      "name": "home-mockup",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve@14.2.4", "docs/mockups/home-kappo", "-l", "4321", "--no-clipboard"],
+      "port": 4321
     }
   ]
 }
